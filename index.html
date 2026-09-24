@@ -79,6 +79,10 @@
   .video-grid{display:grid;gap:clamp(1.5rem,4vw,3rem);align-items:center}
   @media(min-width:52rem){.video-grid{grid-template-columns:1.3fr 1fr}}
   .frame{aspect-ratio:16/9;background:#4C544A;display:grid;place-items:center;color:#DCE2D8}
+  .frame.photo{overflow:hidden}
+  .frame.photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .veil.soon{margin-top:0}
+  .veil.soon > .day{filter:blur(5px);opacity:.75;pointer-events:none;user-select:none}
   .frame.portrait{aspect-ratio:9/16;width:min(100%,20rem);justify-self:center;background:#000;overflow:hidden}
   .frame.portrait video{width:100%;height:100%;object-fit:cover;display:block}
   .play{width:62px;height:62px;border-radius:50%;border:1px solid rgba(255,255,255,.75);display:grid;place-items:center;margin:0 auto .85rem}
@@ -534,7 +538,7 @@
 
   <section class="video">
     <div class="wrap video-grid">
-      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video coming soon</span></div></div>
+      <div class="frame photo"><img src="media/palace.jpeg" alt="Pałac Pawłowice"></div>
       <div>
         <h2 data-i18n="video.wed.title">What the day looks like</h2>
         <p data-i18n="video.wed.body">A short walk through the Saturday: where to be, roughly when, and what kind of day we're planning.</p>
@@ -565,13 +569,16 @@
         <div class="day-name" data-i18n="w.kids">Children</div>
         <p class="day-what"><span data-i18n="w.kids.note">We've decided to keep the day adults-only. We know that makes things harder for some of you, and we're sorry — we'd still love you to come, and we hope you can find a way to make it work.</span></p>
       </div>
-      <div class="day">
+      <div class="veil soon">
+      <div class="day" aria-hidden="true">
         <div class="day-name" data-i18n="w.dress">What to wear</div>
         <p class="day-what"><span class="todo" style="margin-top:0"><b>To add</b><span data-i18n="w.dress.todo">Dress code still to decide — one line here, plus a note that July in Wrocław is hot.</span></span></p>
       </div>
-      <div class="day">
+      <div class="day" aria-hidden="true">
         <div class="day-name" data-i18n="w.gifts">Gifts</div>
         <p class="day-what"><span class="todo" style="margin-top:0"><b>To add</b><span data-i18n="w.gifts.todo">Decide what to say about gifts — nothing needed, a contribution, or a list.</span></span></p>
+      </div>
+      <p class="veil-label"><span data-i18n="soon.short">More details soon</span></p>
       </div>
       <div class="day">
         <div class="day-name" data-i18n="w.where">Where to go</div>
@@ -807,7 +814,8 @@ const S = {
 "w.help": "If something goes wrong",
 "w.help.note": "Write to us at zuandluis@gmail.com before the day. On the day itself, [contact name] will be the person to call on [phone].",
 "w.cta.note": "Coming? Let us know which days, and whether you'd like a room at the palace.",
-"home.soon": "More details to come soon"
+"home.soon": "More details to come soon",
+"soon.short": "More details soon"
 },
 "es": {
 "nav.home": "Inicio",
@@ -1003,7 +1011,8 @@ const S = {
 "w.help": "Si surge algún problema",
 "w.help.note": "Escríbenos a zuandluis@gmail.com antes del día. El mismo día, [nombre de contacto] será la persona a la que llamar al [teléfono].",
 "w.cta.note": "¿Vienes? Dinos qué días y si quieres habitación en el palacio.",
-"home.soon": "Pronto más detalles"
+"home.soon": "Pronto más detalles",
+"soon.short": "Más detalles pronto"
 },
 "pl": {
 "nav.home": "Start",
@@ -1199,7 +1208,8 @@ const S = {
 "w.help": "Gdyby coś poszło nie tak",
 "w.help.note": "Przed weselem pisz do nas na zuandluis@gmail.com. W dniu ślubu osobą do kontaktu będzie [imię], telefon [numer].",
 "w.cta.note": "Będziesz? Daj znać, w które dni i czy chcesz pokój w pałacu.",
-"home.soon": "Więcej szczegółów wkrótce"
+"home.soon": "Więcej szczegółów wkrótce",
+"soon.short": "Więcej szczegółów wkrótce"
 }
 };
 
