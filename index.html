@@ -58,8 +58,8 @@
   .hero{text-align:center;padding-block:clamp(2.5rem,7vw,4.5rem) clamp(2.5rem,6vw,4rem)}
   .eyebrow{font-size:clamp(1.5rem,5.5vw,2.9rem);font-family:"Cormorant Garamond",serif;font-weight:300;letter-spacing:.22em;margin:0 0 1.75rem;text-indent:.22em}
   .names{font-family:"Great Vibes",cursive;color:var(--red);font-size:clamp(2.9rem,10vw,5.5rem);line-height:1.05;margin:0}
-  .arch{width:min(30rem,90%);margin:clamp(2rem,5vw,3rem) auto 0;aspect-ratio:900/948;
-    border-radius:50% 50% 0 0 / 30% 30% 0 0;
+  .arch{width:min(26rem,84%);margin:clamp(2rem,5vw,3rem) auto 0;aspect-ratio:900/948;
+    border-radius:50% 50% 0 0 / 44% 44% 0 0;
     background-color:var(--arch-bg);background-image:var(--arch-image);background-size:cover;background-position:center;}
   .when{margin:clamp(1.75rem,4vw,2.5rem) 0 0;font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.16em;font-family:"Cormorant Garamond",serif}
   .where{margin:.5rem 0 0;color:var(--fg-soft);letter-spacing:.06em;font-size:.95rem}
@@ -141,6 +141,11 @@
   .hidden{display:none}
   .todo{border:1px dashed var(--red);color:var(--red);padding:.9rem 1.1rem;margin-top:1rem;font-size:.92rem}
   .todo b{display:block;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;margin-bottom:.3rem}
+  .veil{position:relative;margin-top:3rem}
+  .veil > .links{margin-top:0;filter:blur(5px);opacity:.75;pointer-events:none;user-select:none}
+  .veil-label{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:1rem}
+  .veil-label span{font-family:"Cormorant Garamond",serif;font-size:clamp(1.4rem,3.5vw,2rem);letter-spacing:.04em;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);padding:.65rem 1.5rem}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .btn[disabled]{opacity:.6;cursor:wait}
   .done{text-align:center;border:1px solid var(--rule);padding:clamp(2rem,5vw,3rem);background:var(--field)}
@@ -189,11 +194,11 @@
 
   <section class="video">
     <div class="wrap video-grid">
-      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video placeholder 16:9</span></div></div>
+      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video coming soon</span></div></div>
       <div>
         <h2 data-i18n="video.home.title">Hello from both of us</h2>
         <p data-i18n="video.home.body">Two minutes on what the weekend looks like, how to get to Wrocław, and the few things worth booking early. Every page has its own short video like this one.</p>
-        <p class="sub" data-i18n="video.sub">Subtitles in Spanish, English and Polish.</p>
+        <p class="sub" data-i18n="video.sub">Videos coming soon — with subtitles in Spanish, English and Polish.</p>
       </div>
     </div>
   </section>
@@ -204,7 +209,7 @@
     <div class="days">
       <div class="day">
         <div class="day-name">Fri 9 July<em data-i18n="day.fri.label">Optional</em></div>
-        <p class="day-what"><strong data-i18n="day.fri.what">Wrocław city tour</strong><span data-i18n="day.fri.note">Arrivals through the afternoon, guided walk around the old town from [time].</span></p>
+        <p class="day-what"><strong data-i18n="day.fri.what">Wrocław city tour</strong><span data-i18n="day.fri.note">Special guided walking tour of Wrocław starting approximately midday (more details to come soon).</span></p>
       </div>
       <div class="day main">
         <div class="day-name">Sat 10 July<em data-i18n="day.sat.label">The wedding day</em></div>
@@ -213,22 +218,25 @@
       </div>
       <div class="day">
         <div class="day-name">Sun 11 July<em data-i18n="day.sun.label">Optional</em></div>
-        <p class="day-what"><strong data-i18n="day.sun.what">Late breakfast</strong><span data-i18n="day.sun.note">Slow start, food from [time], goodbyes before the afternoon trains and flights.</span></p>
+        <p class="day-what"><strong data-i18n="day.sun.what">Boat trip and lunch</strong><span data-i18n="day.sun.note">A boat tour along the Odra with lunch on board (more details to come soon).</span></p>
       </div>
     </div>
-    <nav class="links" aria-label="Sections">
-      <a href="#/wedding"><h3 data-i18n="nav.wedding">The wedding</h3><p data-i18n="link.wedding">Times, venue, what to wear.</p></a>
-      <a href="#/travel"><h3 data-i18n="nav.travel">Travel</h3><p data-i18n="link.travel">Flights to Wrocław and the ride to the palace.</p></a>
-      <a href="#/stay"><h3 data-i18n="nav.stay">Stay</h3><p data-i18n="link.stay">Rooms we've held, and the booking deadline.</p></a>
-      <a href="#/rsvp"><h3 data-i18n="nav.rsvp">RSVP</h3><p data-i18n="link.rsvp">Tell us which days you're coming.</p></a>
+    <div class="veil">
+    <nav class="links" aria-hidden="true" aria-label="Sections">
+      <a href="#/wedding" tabindex="-1"><h3 data-i18n="nav.wedding">The wedding</h3><p data-i18n="link.wedding">Times, venue, what to wear.</p></a>
+      <a href="#/travel" tabindex="-1"><h3 data-i18n="nav.travel">Travel</h3><p data-i18n="link.travel">Flights to Wrocław and the ride to the palace.</p></a>
+      <a href="#/stay" tabindex="-1"><h3 data-i18n="nav.stay">Stay</h3><p data-i18n="link.stay">Rooms we've held, and the booking deadline.</p></a>
+      <a href="#/rsvp" tabindex="-1"><h3 data-i18n="nav.rsvp">RSVP</h3><p data-i18n="link.rsvp">Tell us which days you're coming.</p></a>
     </nav>
+    <p class="veil-label"><span data-i18n="home.soon">More details to come soon</span></p>
+    </div>
   </section>
 
   <section class="band">
     <div class="wrap">
       <p class="count" id="count">—</p>
       <p class="count-label" data-i18n="count.label">days to go</p>
-      <p class="deadline" data-i18n="count.deadline">Please reply by [date]. Rooms at [hotel] are held for us until [date].</p>
+      <p class="deadline" data-i18n="count.deadline">No deadline yet — reply whenever you know, and we will tell you if it ever becomes last call.</p>
       <a class="btn btn-solid" href="#/rsvp" data-i18n="cta.rsvp">Send your RSVP</a>
     </div>
   </section>
@@ -238,16 +246,16 @@
 <div class="page" data-page="rsvp">
   <section class="phead wrap">
     <h1 data-i18n="rsvp.title">RSVP</h1>
-    <p data-i18n="rsvp.lede">One form per household — whoever is organising answers for everyone coming with them. Replies by [date].</p>
+    <p data-i18n="rsvp.lede">One form per household — whoever is organising answers for everyone coming with them.</p>
   </section>
 
   <section class="video">
     <div class="wrap video-grid">
-      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video placeholder 16:9</span></div></div>
+      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video coming soon</span></div></div>
       <div>
         <h2 data-i18n="video.rsvp.title">How to fill this in</h2>
         <p data-i18n="video.rsvp.body">A minute on what we're asking and why: which days you can join, what you'd like to eat, and whether you need a room or a lift from the city.</p>
-        <p class="sub" data-i18n="video.sub">Subtitles in Spanish, English and Polish.</p>
+        <p class="sub" data-i18n="video.sub">Videos coming soon — with subtitles in Spanish, English and Polish.</p>
       </div>
     </div>
   </section>
@@ -279,9 +287,9 @@
         <fieldset>
           <legend data-i18n="f.days">Which days?</legend>
           <p class="hint" data-i18n="f.days.hint">Tick everything you can join. Saturday is the wedding day; Friday and Sunday are optional.</p>
-          <label class="choice"><input type="checkbox" name="days" value="fri"><span><b data-i18n="f.day.fri">Friday 9 July — Wrocław city tour</b><small data-i18n="f.day.fri.note">A walk around the old town. Comfortable shoes.</small></span></label>
+          <label class="choice"><input type="checkbox" name="days" value="fri"><span><b data-i18n="f.day.fri">Friday 9 July — Wrocław city tour</b><small data-i18n="f.day.fri.note">Guided walking tour of Wrocław from around midday. Comfortable shoes.</small></span></label>
           <label class="choice"><input type="checkbox" name="days" value="sat"><span><b data-i18n="f.day.sat">Saturday 10 July — the wedding</b><small data-i18n="f.day.sat.note">Ceremony, dinner and dancing at Pałac Pawłowice.</small></span></label>
-          <label class="choice"><input type="checkbox" name="days" value="sun"><span><b data-i18n="f.day.sun">Sunday 11 July — late breakfast</b><small data-i18n="f.day.sun.note">A slow goodbye before you travel home.</small></span></label>
+          <label class="choice"><input type="checkbox" name="days" value="sun"><span><b data-i18n="f.day.sun">Sunday 11 July — boat trip and lunch</b><small data-i18n="f.day.sun.note">A boat tour on the Odra with lunch on board. Book your flight home for the evening.</small></span></label>
           <p class="err" id="e-days" data-i18n="f.err.days">Please pick at least one day.</p>
         </fieldset>
 
@@ -347,7 +355,7 @@
 
       <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
       <button class="btn btn-solid" type="submit" id="sendBtn" data-i18n="f.send">Send my reply</button>
-      <p class="err" id="e-send" data-i18n="f.err.send">Something went wrong and your reply wasn't sent. Please try again, or email us at [email].</p>
+      <p class="err" id="e-send" data-i18n="f.err.send">Something went wrong and your reply wasn't sent. Please try again, or email us at zuandluis@gmail.com.</p>
       <p class="note" data-i18n="f.note">You can send the form again if your plans change — just tell us in the message.</p>
     </form>
 
@@ -368,11 +376,11 @@
 
   <section class="video">
     <div class="wrap video-grid">
-      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video placeholder 16:9</span></div></div>
+      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video coming soon</span></div></div>
       <div>
         <h2 data-i18n="video.travel.title">Getting to us</h2>
         <p data-i18n="video.travel.body">A couple of minutes on where to fly, how to get from the airport to the palace, and why we'd rather you stayed at the venue with everyone else.</p>
-        <p class="sub" data-i18n="video.sub">Subtitles in Spanish, English and Polish.</p>
+        <p class="sub" data-i18n="video.sub">Videos coming soon — with subtitles in Spanish, English and Polish.</p>
       </div>
     </div>
   </section>
@@ -445,11 +453,11 @@
 
   <section class="video">
     <div class="wrap video-grid">
-      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video placeholder 16:9</span></div></div>
+      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video coming soon</span></div></div>
       <div>
         <h2 data-i18n="video.stay.title">Where you'll sleep</h2>
         <p data-i18n="video.stay.body">A quick look at the rooms at Pałac Pawłowice, what a night costs, and how to pay us so we can hold one for you.</p>
-        <p class="sub" data-i18n="video.sub">Subtitles in Spanish, English and Polish.</p>
+        <p class="sub" data-i18n="video.sub">Videos coming soon — with subtitles in Spanish, English and Polish.</p>
       </div>
     </div>
   </section>
@@ -472,7 +480,7 @@
       </div>
       <div class="day">
         <div class="day-name" data-i18n="s.hold">Holding a room</div>
-        <p class="day-what"><span data-i18n="s.hold.note">Say yes on the RSVP and we'll hold one for you. Rooms are limited, so the deadline to confirm and pay is [date].</span></p>
+        <p class="day-what"><span data-i18n="s.hold.note">Say yes on the RSVP and we will hold one for you. Rooms are limited, so the sooner you tell us, the better.</span></p>
       </div>
     </div>
   </section>
@@ -525,11 +533,11 @@
 
   <section class="video">
     <div class="wrap video-grid">
-      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video placeholder 16:9</span></div></div>
+      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video coming soon</span></div></div>
       <div>
         <h2 data-i18n="video.wed.title">What the day looks like</h2>
         <p data-i18n="video.wed.body">A short walk through the Saturday: where to be, roughly when, and what kind of day we're planning.</p>
-        <p class="sub" data-i18n="video.sub">Subtitles in Spanish, English and Polish.</p>
+        <p class="sub" data-i18n="video.sub">Videos coming soon — with subtitles in Spanish, English and Polish.</p>
       </div>
     </div>
   </section>
@@ -570,7 +578,7 @@
       </div>
       <div class="day">
         <div class="day-name" data-i18n="w.help">If something goes wrong</div>
-        <p class="day-what"><span data-i18n="w.help.note">Write to us at [email] before the day. On the day itself, [contact name] will be the person to call on [phone].</span></p>
+        <p class="day-what"><span data-i18n="w.help.note">Write to us at zuandluis@gmail.com before the day. On the day itself, [contact name] will be the person to call on [phone].</span></p>
       </div>
     </div>
   </section>
@@ -586,7 +594,7 @@
 
 <footer>
   <div class="wrap foot-in">
-    <p style="margin:0" data-i18n="foot.contact">Questions? Write to us at [email].</p>
+    <p style="margin:0" data-i18n="foot.contact">Questions? Write to us at zuandluis@gmail.com.</p>
     <div class="langs" role="group" aria-label="Language">
       <button class="lang" data-lang="es" aria-pressed="false">ES</button>
       <button class="lang" data-lang="en" aria-pressed="true">EN</button>
@@ -614,8 +622,8 @@ const S = {
 "hero.eyebrow": "WE ARE GETTING MARRIED",
 "cta.rsvp": "Send your RSVP",
 "cta.details": "See the weekend",
-"video.placeholder": "Video placeholder 16:9",
-"video.sub": "Subtitles in Spanish, English and Polish.",
+"video.placeholder": "Video coming soon",
+"video.sub": "Videos coming soon — with subtitles in Spanish, English and Polish.",
 "video.home.title": "Hello from both of us",
 "video.home.body": "Two minutes on what the weekend looks like, how to get to Wrocław, and the few things worth booking early. Every page has its own short video like this one.",
 "video.rsvp.title": "How to fill this in",
@@ -624,23 +632,23 @@ const S = {
 "weekend.lede": "Come for the whole weekend if you can. If you can only make one day, make it Saturday.",
 "day.fri.label": "Optional",
 "day.fri.what": "Wrocław city tour",
-"day.fri.note": "Arrivals through the afternoon, guided walk around the old town from [time].",
+"day.fri.note": "Special guided walking tour of Wrocław starting approximately midday (more details to come soon).",
 "day.sat.label": "The wedding day",
 "day.sat.what": "Ceremony and party",
 "day.sat.note": "Ceremony at [time] at Pałac Pawłowice, dinner, and dancing until late.",
 "day.flag": "Don't miss this one",
 "day.sun.label": "Optional",
-"day.sun.what": "Late breakfast",
-"day.sun.note": "Slow start, food from [time], goodbyes before the afternoon trains and flights.",
+"day.sun.what": "Boat trip and lunch",
+"day.sun.note": "A boat tour along the Odra with lunch on board (more details to come soon).",
 "link.wedding": "Times, venue, what to wear.",
 "link.travel": "Flights to Wrocław and the ride to the palace.",
 "link.stay": "Rooms we've held, and the booking deadline.",
 "link.rsvp": "Tell us which days you're coming.",
 "count.label": "days to go",
-"count.deadline": "Please reply by [date]. Rooms at the palace are held for us until [date].",
-"foot.contact": "Questions? Write to us at [email].",
+"count.deadline": "No deadline yet — reply whenever you know, and we will tell you if it ever becomes last call.",
+"foot.contact": "Questions? Write to us at zuandluis@gmail.com.",
 "rsvp.title": "RSVP",
-"rsvp.lede": "One form per household — whoever is organising answers for everyone coming with them. Replies by [date].",
+"rsvp.lede": "One form per household — whoever is organising answers for everyone coming with them.",
 "f.who": "Who's replying?",
 "f.name": "Your name *",
 "f.email": "Email *",
@@ -653,11 +661,11 @@ const S = {
 "f.days": "Which days?",
 "f.days.hint": "Tick everything your group can join. Saturday is the wedding day; Friday and Sunday are optional. If you're arriving on different days, tell us at the end.",
 "f.day.fri": "Friday 9 July — Wrocław city tour",
-"f.day.fri.note": "A walk around the old town. Comfortable shoes.",
+"f.day.fri.note": "Guided walking tour of Wrocław from around midday. Comfortable shoes.",
 "f.day.sat": "Saturday 10 July — the wedding",
 "f.day.sat.note": "Ceremony, dinner and dancing at Pałac Pawłowice.",
-"f.day.sun": "Sunday 11 July — late breakfast",
-"f.day.sun.note": "A slow goodbye before you travel home.",
+"f.day.sun": "Sunday 11 July — boat trip and lunch",
+"f.day.sun.note": "A boat tour on the Odra with lunch on board. Book your flight home for the evening.",
 "f.err.days": "Please pick at least one day.",
 "f.party": "How many of you are coming?",
 "f.adults": "Number of people, including you",
@@ -687,7 +695,7 @@ const S = {
 "f.done.body": "We've got your reply. We'll be in touch closer to the date with the final details.",
 "f.done.back": "Back to the home page",
 "f.sending": "Sending…",
-"f.err.send": "Something went wrong and your reply wasn't sent. Please try again, or email us at [email].",
+"f.err.send": "Something went wrong and your reply wasn't sent. Please try again, or email us at zuandluis@gmail.com.",
 "f.acc": "Accommodation",
 "f.acc.q": "Would you like to book accommodation at the venue hotel?",
 "f.yes.short": "Yes",
@@ -743,7 +751,7 @@ const S = {
 "s.nights": "Which nights",
 "s.nights.note": "Friday, Saturday and Sunday are all available. Most guests staying the whole weekend take Friday and Saturday night.",
 "s.hold": "Holding a room",
-"s.hold.note": "Say yes on the RSVP and we'll hold one for you. Rooms are limited, so the deadline to confirm and pay is [date].",
+"s.hold.note": "Say yes on the RSVP and we will hold one for you. Rooms are limited, so the sooner you tell us, the better.",
 "s.pay.h": "How to pay",
 "s.pay.lede": "We collect the payments ourselves and settle with the palace, so it goes to us rather than to the venue. We'll send you your link once you've told us on the RSVP.",
 "s.pay.uk": "From the UK",
@@ -793,8 +801,9 @@ const S = {
 "w.where": "Where to go",
 "w.where.note": "Pałac Pawłowice, Pawłowicka 87/89, 51-250 Wrocław. It's in the north-east of the city — see the travel page for how to get there.",
 "w.help": "If something goes wrong",
-"w.help.note": "Write to us at [email] before the day. On the day itself, [contact name] will be the person to call on [phone].",
-"w.cta.note": "Coming? Let us know which days, and whether you'd like a room at the palace."
+"w.help.note": "Write to us at zuandluis@gmail.com before the day. On the day itself, [contact name] will be the person to call on [phone].",
+"w.cta.note": "Coming? Let us know which days, and whether you'd like a room at the palace.",
+"home.soon": "More details to come soon"
 },
 "es": {
 "nav.home": "Inicio",
@@ -806,8 +815,8 @@ const S = {
 "hero.eyebrow": "NOS CASAMOS",
 "cta.rsvp": "Confirma tu asistencia",
 "cta.details": "Ver el fin de semana",
-"video.placeholder": "Espacio para el vídeo 16:9",
-"video.sub": "Subtítulos en español, inglés y polaco.",
+"video.placeholder": "Vídeo próximamente",
+"video.sub": "Vídeos próximamente, con subtítulos en español, inglés y polaco.",
 "video.home.title": "Un saludo de los dos",
 "video.home.body": "Dos minutos sobre cómo será el fin de semana, cómo llegar a Wrocław y lo poco que conviene reservar pronto. Cada página tiene su propio vídeo como este.",
 "video.rsvp.title": "Cómo rellenar el formulario",
@@ -816,23 +825,23 @@ const S = {
 "weekend.lede": "Ven el fin de semana entero si puedes. Si solo puedes un día, que sea el sábado.",
 "day.fri.label": "Opcional",
 "day.fri.what": "Tour por Wrocław",
-"day.fri.note": "Llegadas durante la tarde y paseo guiado por el casco antiguo a partir de las [hora].",
+"day.fri.note": "Visita guiada especial por Wrocław, con salida aproximadamente a mediodía (pronto más detalles).",
 "day.sat.label": "El día de la boda",
 "day.sat.what": "Ceremonia y fiesta",
 "day.sat.note": "Ceremonia a las [hora] en el Pałac Pawłowice, cena y baile hasta tarde.",
 "day.flag": "Este no te lo pierdas",
 "day.sun.label": "Opcional",
-"day.sun.what": "Desayuno tardío",
-"day.sun.note": "Mañana tranquila, comida desde las [hora] y despedidas antes de los trenes y vuelos de la tarde.",
+"day.sun.what": "Paseo en barco y comida",
+"day.sun.note": "Un paseo en barco por el Oder con comida a bordo (pronto más detalles).",
 "link.wedding": "Horarios, lugar y cómo vestir.",
 "link.travel": "Vuelos a Wrocław y el traslado al palacio.",
 "link.stay": "Habitaciones reservadas y fecha límite.",
 "link.rsvp": "Dinos qué días vienes.",
 "count.label": "días para la boda",
-"count.deadline": "Responde antes del [fecha]. Las habitaciones del palacio están reservadas hasta el [fecha].",
-"foot.contact": "¿Dudas? Escríbenos a [email].",
+"count.deadline": "Todavía no hay fecha límite: contéstanos cuando lo sepas y ya avisaremos si en algún momento corre prisa.",
+"foot.contact": "¿Dudas? Escríbenos a zuandluis@gmail.com.",
 "rsvp.title": "Confirmación",
-"rsvp.lede": "Un formulario por familia o grupo: quien lo organice responde por todos los que van con él. Responde antes del [fecha].",
+"rsvp.lede": "Un formulario por familia o grupo: quien lo organice responde por todos los que van con él.",
 "f.who": "¿Quién responde?",
 "f.name": "Tu nombre *",
 "f.email": "Correo electrónico *",
@@ -845,11 +854,11 @@ const S = {
 "f.days": "¿Qué días?",
 "f.days.hint": "Marca todo lo que podáis. El sábado es el día de la boda; el viernes y el domingo son opcionales. Si llegáis en días distintos, cuéntanoslo al final.",
 "f.day.fri": "Viernes 9 de julio — tour por Wrocław",
-"f.day.fri.note": "Un paseo por el casco antiguo. Calzado cómodo.",
+"f.day.fri.note": "Visita guiada por Wrocław hacia el mediodía. Calzado cómodo.",
 "f.day.sat": "Sábado 10 de julio — la boda",
 "f.day.sat.note": "Ceremonia, cena y baile en el Pałac Pawłowice.",
-"f.day.sun": "Domingo 11 de julio — desayuno tardío",
-"f.day.sun.note": "Una despedida sin prisa antes de volver a casa.",
+"f.day.sun": "Domingo 11 de julio — paseo en barco y comida",
+"f.day.sun.note": "Paseo en barco por el Oder con comida a bordo. Reserva el vuelo de vuelta para la tarde-noche.",
 "f.err.days": "Marca al menos un día.",
 "f.party": "¿Cuántos venís?",
 "f.adults": "Número de personas, contigo incluido",
@@ -879,7 +888,7 @@ const S = {
 "f.done.body": "Hemos recibido tu respuesta. Te escribiremos más cerca de la fecha con los últimos detalles.",
 "f.done.back": "Volver al inicio",
 "f.sending": "Enviando…",
-"f.err.send": "Algo ha fallado y tu respuesta no se ha enviado. Inténtalo de nuevo o escríbenos a [email].",
+"f.err.send": "Algo ha fallado y tu respuesta no se ha enviado. Inténtalo de nuevo o escríbenos a zuandluis@gmail.com.",
 "f.acc": "Alojamiento",
 "f.acc.q": "¿Quieres reservar alojamiento en el hotel del lugar de la boda?",
 "f.yes.short": "Sí",
@@ -935,7 +944,7 @@ const S = {
 "s.nights": "Qué noches",
 "s.nights.note": "Están disponibles viernes, sábado y domingo. Quien se queda todo el fin de semana suele coger viernes y sábado.",
 "s.hold": "Reservar habitación",
-"s.hold.note": "Marca que sí en el formulario y te guardamos una. Las plazas son limitadas, así que la fecha límite para confirmar y pagar es el [fecha].",
+"s.hold.note": "Marca que sí en el formulario y te guardamos una. Las plazas son limitadas, así que cuanto antes nos lo digas, mejor.",
 "s.pay.h": "Cómo pagar",
 "s.pay.lede": "Nosotros recogemos los pagos y liquidamos con el palacio, así que se nos paga a nosotros y no al hotel. Te enviaremos los datos en cuanto nos lo digas en el formulario.",
 "s.pay.uk": "Desde el Reino Unido",
@@ -985,8 +994,9 @@ const S = {
 "w.where": "Dónde es",
 "w.where.note": "Pałac Pawłowice, Pawłowicka 87/89, 51-250 Wrocław. Está al noreste de la ciudad; en la página de cómo llegar explicamos el trayecto.",
 "w.help": "Si surge algún problema",
-"w.help.note": "Escríbenos a [email] antes del día. El mismo día, [nombre de contacto] será la persona a la que llamar al [teléfono].",
-"w.cta.note": "¿Vienes? Dinos qué días y si quieres habitación en el palacio."
+"w.help.note": "Escríbenos a zuandluis@gmail.com antes del día. El mismo día, [nombre de contacto] será la persona a la que llamar al [teléfono].",
+"w.cta.note": "¿Vienes? Dinos qué días y si quieres habitación en el palacio.",
+"home.soon": "Pronto más detalles"
 },
 "pl": {
 "nav.home": "Start",
@@ -998,8 +1008,8 @@ const S = {
 "hero.eyebrow": "BIERZEMY ŚLUB",
 "cta.rsvp": "Potwierdź obecność",
 "cta.details": "Zobacz plan weekendu",
-"video.placeholder": "Miejsce na film 16:9",
-"video.sub": "Napisy po hiszpańsku, angielsku i polsku.",
+"video.placeholder": "Film wkrótce",
+"video.sub": "Filmy wkrótce — z napisami po hiszpańsku, angielsku i polsku.",
 "video.home.title": "Kilka słów od nas",
 "video.home.body": "Dwie minuty o tym, jak będzie wyglądał weekend, jak dojechać do Wrocławia i co warto zarezerwować wcześniej. Każda strona ma swój krótki film.",
 "video.rsvp.title": "Jak wypełnić formularz",
@@ -1008,23 +1018,23 @@ const S = {
 "weekend.lede": "Przyjedź na cały weekend, jeśli możesz. Jeśli tylko na jeden dzień — niech to będzie sobota.",
 "day.fri.label": "Nieobowiązkowo",
 "day.fri.what": "Zwiedzanie Wrocławia",
-"day.fri.note": "Przyjazdy po południu, spacer z przewodnikiem po starówce od godz. [godzina].",
+"day.fri.note": "Specjalne zwiedzanie Wrocławia z przewodnikiem, start mniej więcej w południe (szczegóły wkrótce).",
 "day.sat.label": "Dzień ślubu",
 "day.sat.what": "Ceremonia i przyjęcie",
 "day.sat.note": "Ceremonia o [godzina] w Pałacu Pawłowice, kolacja i zabawa do późna.",
 "day.flag": "Tego dnia nie przegap",
 "day.sun.label": "Nieobowiązkowo",
-"day.sun.what": "Późne śniadanie",
-"day.sun.note": "Spokojny poranek, jedzenie od [godzina], pożegnania przed popołudniowymi pociągami i lotami.",
+"day.sun.what": "Rejs i obiad",
+"day.sun.note": "Rejs po Odrze z obiadem na pokładzie (szczegóły wkrótce).",
 "link.wedding": "Godziny, miejsce, dress code.",
 "link.travel": "Loty do Wrocławia i dojazd do pałacu.",
 "link.stay": "Zarezerwowane pokoje i termin rezerwacji.",
 "link.rsvp": "Napisz, w które dni będziesz.",
 "count.label": "dni do ślubu",
-"count.deadline": "Prosimy o odpowiedź do [data]. Pokoje w pałacu są dla nas zarezerwowane do [data].",
-"foot.contact": "Pytania? Napisz do nas: [email].",
+"count.deadline": "Nie ma jeszcze terminu — odpowiedz, gdy będziesz wiedzieć, a damy znać, gdyby zrobiło się pilnie.",
+"foot.contact": "Pytania? Napisz do nas: zuandluis@gmail.com.",
 "rsvp.title": "Potwierdzenie obecności",
-"rsvp.lede": "Jeden formularz na rodzinę lub grupę — wypełnia go osoba, która odpowiada za wszystkich przyjeżdżających razem z nią. Odpowiedz do [data].",
+"rsvp.lede": "Jeden formularz na rodzinę lub grupę — wypełnia go osoba, która odpowiada za wszystkich przyjeżdżających razem z nią.",
 "f.who": "Kto wypełnia formularz?",
 "f.name": "Twoje imię i nazwisko *",
 "f.email": "E-mail *",
@@ -1037,11 +1047,11 @@ const S = {
 "f.days": "W które dni?",
 "f.days.hint": "Zaznacz wszystkie dni, w które Wasza grupa może być. Sobota to dzień ślubu; piątek i niedziela są nieobowiązkowe. Jeśli przyjeżdżacie w różne dni, napisz o tym na końcu.",
 "f.day.fri": "Piątek 9 lipca — zwiedzanie Wrocławia",
-"f.day.fri.note": "Spacer po starówce. Wygodne buty.",
+"f.day.fri.note": "Zwiedzanie Wrocławia z przewodnikiem od około południa. Wygodne buty.",
 "f.day.sat": "Sobota 10 lipca — ślub",
 "f.day.sat.note": "Ceremonia, kolacja i zabawa w Pałacu Pawłowice.",
-"f.day.sun": "Niedziela 11 lipca — późne śniadanie",
-"f.day.sun.note": "Spokojne pożegnanie przed drogą powrotną.",
+"f.day.sun": "Niedziela 11 lipca — rejs i obiad",
+"f.day.sun.note": "Rejs po Odrze z obiadem na pokładzie. Lot powrotny zaplanuj na wieczór.",
 "f.err.days": "Zaznacz przynajmniej jeden dzień.",
 "f.party": "Ile osób przyjeżdża?",
 "f.adults": "Liczba osób, razem z Tobą",
@@ -1071,7 +1081,7 @@ const S = {
 "f.done.body": "Mamy Twoją odpowiedź. Odezwiemy się bliżej terminu ze szczegółami.",
 "f.done.back": "Wróć na stronę główną",
 "f.sending": "Wysyłanie…",
-"f.err.send": "Coś poszło nie tak i odpowiedź nie została wysłana. Spróbuj ponownie albo napisz do nas: [email].",
+"f.err.send": "Coś poszło nie tak i odpowiedź nie została wysłana. Spróbuj ponownie albo napisz do nas: zuandluis@gmail.com.",
 "f.acc": "Nocleg",
 "f.acc.q": "Czy chcesz zarezerwować nocleg w hotelu na miejscu wesela?",
 "f.yes.short": "Tak",
@@ -1127,7 +1137,7 @@ const S = {
 "s.nights": "Które noce",
 "s.nights.note": "Dostępne są piątek, sobota i niedziela. Goście zostający na cały weekend zwykle biorą piątek i sobotę.",
 "s.hold": "Rezerwacja pokoju",
-"s.hold.note": "Zaznacz „tak” w formularzu, a zarezerwujemy pokój. Liczba miejsc jest ograniczona, więc termin potwierdzenia i płatności to [data].",
+"s.hold.note": "Zaznacz „tak” w formularzu, a zarezerwujemy pokój. Liczba miejsc jest ograniczona, więc im wcześniej dasz znać, tym lepiej.",
 "s.pay.h": "Jak zapłacić",
 "s.pay.lede": "Zbieramy płatności sami i rozliczamy się z pałacem, więc płacisz nam, a nie hotelowi. Dane wyślemy po otrzymaniu formularza.",
 "s.pay.uk": "Z Wielkiej Brytanii",
@@ -1177,8 +1187,9 @@ const S = {
 "w.where": "Gdzie",
 "w.where.note": "Pałac Pawłowice, Pawłowicka 87/89, 51-250 Wrocław. To północno-wschodnia część miasta — jak dojechać, piszemy na stronie o dojeździe.",
 "w.help": "Gdyby coś poszło nie tak",
-"w.help.note": "Przed weselem pisz do nas na [email]. W dniu ślubu osobą do kontaktu będzie [imię], telefon [numer].",
-"w.cta.note": "Będziesz? Daj znać, w które dni i czy chcesz pokój w pałacu."
+"w.help.note": "Przed weselem pisz do nas na zuandluis@gmail.com. W dniu ślubu osobą do kontaktu będzie [imię], telefon [numer].",
+"w.cta.note": "Będziesz? Daj znać, w które dni i czy chcesz pokój w pałacu.",
+"home.soon": "Więcej szczegółów wkrótce"
 }
 };
 
