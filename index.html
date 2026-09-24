@@ -79,6 +79,8 @@
   .video-grid{display:grid;gap:clamp(1.5rem,4vw,3rem);align-items:center}
   @media(min-width:52rem){.video-grid{grid-template-columns:1.3fr 1fr}}
   .frame{aspect-ratio:16/9;background:#4C544A;display:grid;place-items:center;color:#DCE2D8}
+  .frame.portrait{aspect-ratio:9/16;width:min(100%,20rem);justify-self:center;background:#000;overflow:hidden}
+  .frame.portrait video{width:100%;height:100%;object-fit:cover;display:block}
   .play{width:62px;height:62px;border-radius:50%;border:1px solid rgba(255,255,255,.75);display:grid;place-items:center;margin:0 auto .85rem}
   .play::after{content:"";border-left:15px solid rgba(255,255,255,.85);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
   .frame span{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase}
@@ -194,11 +196,10 @@
 
   <section class="video">
     <div class="wrap video-grid">
-      <div class="frame"><div style="text-align:center"><div class="play" aria-hidden="true"></div><span data-i18n="video.placeholder">Video coming soon</span></div></div>
+      <div class="frame portrait"><video src="media/intro.mp4" autoplay muted loop playsinline preload="auto" aria-label="Zuzanna and Luis"></video></div>
       <div>
         <h2 data-i18n="video.home.title">Hello from both of us</h2>
-        <p data-i18n="video.home.body">Two minutes on what the weekend looks like, how to get to Wrocław, and the few things worth booking early. Every page has its own short video like this one.</p>
-        <p class="sub" data-i18n="video.sub">Videos coming soon — with subtitles in Spanish, English and Polish.</p>
+        <p data-i18n="video.home.body">A proper video is on its way; for now, a little hello from Brighton :)</p>
       </div>
     </div>
   </section>
@@ -332,7 +333,7 @@
                 <option value="other" data-i18n="f.payfrom.other">Somewhere else</option>
               </select>
             </div>
-            <p class="hint" data-i18n="f.paid.q">The room is 100 PLN per person, per night (about £22). Have you paid us yet?</p>
+            <p class="hint" id="paidQ" data-i18n="f.paid.q.uk">The room is £20 per person, per night. Have you paid us yet?</p>
             <p class="hint" data-i18n="f.paid.hint">If not, don't worry — we'll email you a payment link once we've got your reply.</p>
             <label class="choice"><input type="radio" name="paid" value="yes"><span><b data-i18n="f.paid.yes">Yes, I have paid</b></span></label>
             <label class="choice"><input type="radio" name="paid" value="no"><span><b data-i18n="f.paid.no">No, not yet</b></span></label>
@@ -625,7 +626,7 @@ const S = {
 "video.placeholder": "Video coming soon",
 "video.sub": "Videos coming soon — with subtitles in Spanish, English and Polish.",
 "video.home.title": "Hello from both of us",
-"video.home.body": "Two minutes on what the weekend looks like, how to get to Wrocław, and the few things worth booking early. Every page has its own short video like this one.",
+"video.home.body": "A proper video is on its way; for now, a little hello from Brighton :)",
 "video.rsvp.title": "How to fill this in",
 "video.rsvp.body": "A minute on what we're asking and why: which days you can join, what you'd like to eat, and whether you need a room or a lift from the city.",
 "weekend.title": "Three days, one that matters most",
@@ -701,7 +702,10 @@ const S = {
 "f.yes.short": "Yes",
 "f.no.short": "No",
 "f.err.choose": "Please choose one.",
-"f.paid.q": "The room is 100 PLN per person, per night (£20 or €25). Have you paid us yet?",
+"f.paid.q.uk": "The room is £20 per person, per night. Have you paid us yet?",
+"f.paid.q.es": "The room is €25 per person, per night. Have you paid us yet?",
+"f.paid.q.pl": "The room is 100 zł per person, per night. Have you paid us yet?",
+"f.paid.q.other": "The room is 100 PLN per person, per night (£20 or €25). Have you paid us yet?",
 "f.paid.yes": "Yes, I have paid",
 "f.paid.no": "No, not yet",
 "f.food.hint": "The menu is entirely vegan, so there's nothing to choose — but we do need to know about allergies, for anyone in your group.",
@@ -818,7 +822,7 @@ const S = {
 "video.placeholder": "Vídeo próximamente",
 "video.sub": "Vídeos próximamente, con subtítulos en español, inglés y polaco.",
 "video.home.title": "Un saludo de los dos",
-"video.home.body": "Dos minutos sobre cómo será el fin de semana, cómo llegar a Wrocław y lo poco que conviene reservar pronto. Cada página tiene su propio vídeo como este.",
+"video.home.body": "Pronto llegará un vídeo como es debido; de momento, un pequeño saludo desde Brighton :)",
 "video.rsvp.title": "Cómo rellenar el formulario",
 "video.rsvp.body": "Un minuto sobre lo que te preguntamos y por qué: qué días puedes venir, qué prefieres comer y si necesitas habitación o transporte desde la ciudad.",
 "weekend.title": "Tres días, uno imprescindible",
@@ -894,7 +898,10 @@ const S = {
 "f.yes.short": "Sí",
 "f.no.short": "No",
 "f.err.choose": "Elige una opción, por favor.",
-"f.paid.q": "La habitación cuesta 100 PLN por persona y noche (25 € o 20 £). ¿Ya nos has pagado?",
+"f.paid.q.uk": "La habitación cuesta 20 £ por persona y noche. ¿Ya nos has pagado?",
+"f.paid.q.es": "La habitación cuesta 25 € por persona y noche. ¿Ya nos has pagado?",
+"f.paid.q.pl": "La habitación cuesta 100 zł por persona y noche. ¿Ya nos has pagado?",
+"f.paid.q.other": "La habitación cuesta 100 PLN por persona y noche (25 € o 20 £). ¿Ya nos has pagado?",
 "f.paid.yes": "Sí, ya he pagado",
 "f.paid.no": "No, todavía no",
 "f.food.hint": "El menú es totalmente vegano, así que no hay nada que elegir, pero sí necesitamos saber de alergias de cualquiera de vosotros.",
@@ -1011,7 +1018,7 @@ const S = {
 "video.placeholder": "Film wkrótce",
 "video.sub": "Filmy wkrótce — z napisami po hiszpańsku, angielsku i polsku.",
 "video.home.title": "Kilka słów od nas",
-"video.home.body": "Dwie minuty o tym, jak będzie wyglądał weekend, jak dojechać do Wrocławia i co warto zarezerwować wcześniej. Każda strona ma swój krótki film.",
+"video.home.body": "Prawdziwy film już wkrótce; na razie małe pozdrowienia z Brighton :)",
 "video.rsvp.title": "Jak wypełnić formularz",
 "video.rsvp.body": "Minuta o tym, o co pytamy i dlaczego: w które dni możesz być, co wolisz zjeść i czy potrzebujesz noclegu albo transportu z miasta.",
 "weekend.title": "Trzy dni, jeden najważniejszy",
@@ -1087,7 +1094,10 @@ const S = {
 "f.yes.short": "Tak",
 "f.no.short": "Nie",
 "f.err.choose": "Wybierz jedną opcję.",
-"f.paid.q": "Pokój kosztuje 100 zł od osoby za noc (20 £ lub 25 €). Czy płatność została już do nas wysłana?",
+"f.paid.q.uk": "Pokój kosztuje 20 £ od osoby za noc. Czy płatność została już do nas wysłana?",
+"f.paid.q.es": "Pokój kosztuje 25 € od osoby za noc. Czy płatność została już do nas wysłana?",
+"f.paid.q.pl": "Pokój kosztuje 100 zł od osoby za noc. Czy płatność została już do nas wysłana?",
+"f.paid.q.other": "Pokój kosztuje 100 zł od osoby za noc (20 £ lub 25 €). Czy płatność została już do nas wysłana?",
 "f.paid.yes": "Tak, zapłaciłem/am",
 "f.paid.no": "Nie, jeszcze nie",
 "f.food.hint": "Menu jest w całości wegańskie, więc nie ma co wybierać — ale musimy wiedzieć o alergiach kogokolwiek z Waszej grupy.",
@@ -1231,6 +1241,11 @@ const yesBlock = document.getElementById("yesBlock");
 form.addEventListener("change", e=>{
   if(e.target.name === "attending") yesBlock.classList.toggle("hidden", e.target.value !== "yes");
   if(e.target.name === "accommodation") document.getElementById("paidBlock").classList.toggle("hidden", e.target.value !== "yes");
+  if(e.target.name === "payFrom"){
+    const q = document.getElementById("paidQ");
+    q.dataset.i18n = "f.paid.q." + e.target.value;
+    q.textContent = (S[document.documentElement.lang]||S.en)[q.dataset.i18n];
+  }
   const box = e.target.closest(".choice");
   if(box && e.target.type === "checkbox") box.classList.toggle("sel", e.target.checked);
   if(e.target.type === "radio"){
