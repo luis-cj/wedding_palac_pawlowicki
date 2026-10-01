@@ -82,6 +82,10 @@
   .frame.photo{overflow:hidden}
   .frame.photo img{width:100%;height:100%;object-fit:cover;display:block}
   .veil.soon{margin-top:0}
+  .day-what .veil-inline{position:relative;display:block}
+  .day-what .veil-inline > .todo{filter:blur(5px);opacity:.75;user-select:none}
+  .day-what .veil-inline > .veil-label{position:absolute;inset:0;display:grid;place-items:center}
+  .day-what .veil-inline > .veil-label > span{display:inline-block;color:var(--fg);font-family:"Cormorant Garamond",serif;font-size:clamp(1.2rem,3vw,1.5rem);letter-spacing:.04em;background:color-mix(in srgb,var(--bg) 88%,transparent);padding:.4rem 1.2rem}
   .veil.soon > .day{filter:blur(5px);opacity:.75;pointer-events:none;user-select:none}
   .frame.portrait{aspect-ratio:9/16;width:min(100%,20rem);justify-self:center;background:#000;overflow:hidden}
   .frame.portrait video{width:100%;height:100%;object-fit:cover;display:block}
@@ -187,7 +191,7 @@
 <!-- ================= HOME ================= -->
 <div class="page on" data-page="home">
   <section class="hero wrap">
-    <h1 class="eyebrow" data-i18n="hero.eyebrow">WE ARE GETTING MARRIED</h1>
+    <h1 class="eyebrow" data-i18n="hero.eyebrow">WE ARE GETTING MARRIED!</h1>
     <p class="names">Zuzanna &amp; Luis</p>
     <div class="arch" role="img" aria-label="Zuzanna and Luis in Wrocław"></div>
     <p class="when">10 . 07 . 2027</p>
@@ -213,16 +217,16 @@
     <p class="lede" data-i18n="weekend.lede">Come for the whole weekend if you can. If you can only make one day, make it Saturday.</p>
     <div class="days">
       <div class="day">
-        <div class="day-name">Fri 9 July<em data-i18n="day.fri.label">Optional</em></div>
+        <div class="day-name" data-i18n="day.fri.date">Fri 9 July<em data-i18n="day.fri.label">Optional</em></div>
         <p class="day-what"><strong data-i18n="day.fri.what">Wrocław city tour</strong><span data-i18n="day.fri.note">Special guided walking tour of Wrocław starting approximately midday (more details to come soon).</span></p>
       </div>
       <div class="day main">
-        <div class="day-name">Sat 10 July<em data-i18n="day.sat.label">The wedding day</em></div>
-        <p class="day-what"><strong data-i18n="day.sat.what">Ceremony and party</strong><span data-i18n="day.sat.note">Ceremony at [time] at Pałac Pawłowice, dinner, and dancing until late.</span></p>
+        <div class="day-name" data-i18n="day.sat.date">Sat 10 July<em data-i18n="day.sat.label">The wedding day</em></div>
+        <p class="day-what"><strong data-i18n="day.sat.what">Ceremony and party</strong><span data-i18n="day.sat.note">Ceremony in the afternoon at Pałac Pawłowice, dinner, and dancing until late.</span></p>
         <span class="flag" data-i18n="day.flag">Don't miss this one</span>
       </div>
       <div class="day">
-        <div class="day-name">Sun 11 July<em data-i18n="day.sun.label">Optional</em></div>
+        <div class="day-name" data-i18n="day.sun.date">Sun 11 July<em data-i18n="day.sun.label">Optional</em></div>
         <p class="day-what"><strong data-i18n="day.sun.what">Boat trip and lunch</strong><span data-i18n="day.sun.note">A boat tour along the Odra with lunch on board (more details to come soon).</span></p>
       </div>
     </div>
@@ -230,7 +234,7 @@
     <nav class="links" aria-hidden="true" aria-label="Sections">
       <a href="#/wedding" tabindex="-1"><h3 data-i18n="nav.wedding">The wedding</h3><p data-i18n="link.wedding">Times, venue, what to wear.</p></a>
       <a href="#/travel" tabindex="-1"><h3 data-i18n="nav.travel">Travel</h3><p data-i18n="link.travel">Flights to Wrocław and the ride to the palace.</p></a>
-      <a href="#/stay" tabindex="-1"><h3 data-i18n="nav.stay">Stay</h3><p data-i18n="link.stay">Rooms we've held, and the booking deadline.</p></a>
+      <a href="#/stay" tabindex="-1"><h3 data-i18n="nav.stay">Stay</h3><p data-i18n="link.stay">Rooms at the palace, and how to pay.</p></a>
       <a href="#/rsvp" tabindex="-1"><h3 data-i18n="nav.rsvp">RSVP</h3><p data-i18n="link.rsvp">Tell us which days you're coming.</p></a>
     </nav>
     <p class="veil-label"><span data-i18n="home.soon">More details to come soon</span></p>
@@ -291,7 +295,7 @@
       <div id="yesBlock" class="hidden">
         <fieldset>
           <legend data-i18n="f.days">Which days?</legend>
-          <p class="hint" data-i18n="f.days.hint">Tick everything you can join. Saturday is the wedding day; Friday and Sunday are optional.</p>
+          <p class="hint" data-i18n="f.days.hint">Tick everything your group can join. Saturday is the wedding day; Friday and Sunday are optional. If you're arriving on different days, tell us at the end.</p>
           <label class="choice"><input type="checkbox" name="days" value="fri"><span><b data-i18n="f.day.fri">Friday 9 July — Wrocław city tour</b><small data-i18n="f.day.fri.note">Guided walking tour of Wrocław from around midday. Comfortable shoes.</small></span></label>
           <label class="choice"><input type="checkbox" name="days" value="sat"><span><b data-i18n="f.day.sat">Saturday 10 July — the wedding</b><small data-i18n="f.day.sat.note">Ceremony, dinner and dancing at Pałac Pawłowice.</small></span></label>
           <label class="choice"><input type="checkbox" name="days" value="sun"><span><b data-i18n="f.day.sun">Sunday 11 July — boat trip and lunch</b><small data-i18n="f.day.sun.note">A boat tour on the Odra with lunch on board. Book your flight home for the evening.</small></span></label>
@@ -313,7 +317,7 @@
 
         <fieldset>
           <legend data-i18n="f.food">Food</legend>
-          <p class="hint" data-i18n="f.food.hint">The menu is entirely vegan, so there's nothing to choose — but we do need to know about allergies.</p>
+          <p class="hint" data-i18n="f.food.hint">Does anyone in your group have food allergies or intolerances? Let us know below.</p>
           <div class="field">
             <label class="lab" for="diet" data-i18n="f.diet">Allergies or anything we should know</label>
             <textarea id="diet" name="diet"></textarea>
@@ -322,9 +326,10 @@
 
         <fieldset>
           <legend data-i18n="f.acc">Accommodation</legend>
-          <p class="hint" data-i18n="f.acc.q">Would you like to book accommodation at the venue hotel?</p>
-          <label class="choice"><input type="radio" name="accommodation" value="yes"><span><b data-i18n="f.yes.short">Yes</b></span></label>
-          <label class="choice"><input type="radio" name="accommodation" value="no"><span><b data-i18n="f.no.short">No</b></span></label>
+          <p class="hint" data-i18n="f.acc.q">Where will you be staying?</p>
+          <label class="choice"><input type="radio" name="accommodation" value="family"><span><b data-i18n="f.acc.family">Staying with family or friends</b></span></label>
+          <label class="choice"><input type="radio" name="accommodation" value="own"><span><b data-i18n="f.acc.own">I'll find accommodation on my own</b></span></label>
+          <label class="choice"><input type="radio" name="accommodation" value="venue"><span><b data-i18n="f.acc.venue">I'm interested in a room at the venue</b><small data-i18n="f.acc.venue.note">£20 / €25 / 100 zł per person, per night</small></span></label>
           <p class="err" id="e-accommodation" data-i18n="f.err.choose">Please choose one.</p>
 
           <div id="paidBlock" class="hidden" style="margin-top:1.5rem">
@@ -338,7 +343,7 @@
               </select>
             </div>
             <p class="hint" id="paidQ" data-i18n="f.paid.q.uk">The room is £20 per person, per night. Have you paid us yet?</p>
-            <p class="hint" data-i18n="f.paid.hint">If not, don't worry — we'll email you a payment link once we've got your reply.</p>
+            <p class="hint" data-i18n="f.paid.hint">If not, don't worry — we'll email you the payment details as soon as we get your reply.</p>
             <label class="choice"><input type="radio" name="paid" value="yes"><span><b data-i18n="f.paid.yes">Yes, I have paid</b></span></label>
             <label class="choice"><input type="radio" name="paid" value="no"><span><b data-i18n="f.paid.no">No, not yet</b></span></label>
             <p class="err" id="e-paid" data-i18n="f.err.choose">Please choose one.</p>
@@ -361,7 +366,6 @@
       <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
       <button class="btn btn-solid" type="submit" id="sendBtn" data-i18n="f.send">Send my reply</button>
       <p class="err" id="e-send" data-i18n="f.err.send">Something went wrong and your reply wasn't sent. Please try again, or email us at zuandluis@gmail.com.</p>
-      <p class="note" data-i18n="f.note">You can send the form again if your plans change — just tell us in the message.</p>
     </form>
 
     <div class="done hidden" id="done">
@@ -392,11 +396,11 @@
 
   <section class="weekend wrap">
     <h2 data-i18n="t.flights.h">Flights</h2>
-    <p class="lede" data-i18n="t.flights.lede">Fly into Wrocław (WRO) if you can — it's a small, easy airport and it puts you 30 minutes from the palace.</p>
+    <p class="lede" data-i18n="t.flights.lede">Fly into Wrocław (WRO) if you can — it's a small, easy airport and it puts you about 40 minutes from the palace.</p>
     <div class="days">
       <div class="day">
         <div class="day-name" data-i18n="t.fl.es">From Spain</div>
-        <p class="day-what"><span data-i18n="t.fl.es.note">Low-cost airlines fly to Wrocław from several Spanish cities, though not every day. If nothing lines up with the Friday, look at Kraków or Warsaw and take a train from there.</span></p>
+        <p class="day-what"><span data-i18n="t.fl.es.note">Barcelona and Mallorca both have direct flights to Wrocław, and that's where most of you will fly from. They don't run every day, so check which days line up with the weekend. From elsewhere in Spain, connect through one of them, or fly to Kraków or Warsaw and take the train.</span></p>
       </div>
       <div class="day">
         <div class="day-name" data-i18n="t.fl.uk">From London</div>
@@ -442,7 +446,7 @@
   <section class="band">
     <div class="wrap">
       <h2 style="font-size:clamp(1.8rem,4vw,2.4rem)" id="tstay" data-i18n="t.stay.h">Stay at the palace with us</h2>
-      <p class="deadline" data-i18n="t.stay.body">There are rooms at the venue itself, and it's by far the simplest option: no taxis late at night, breakfast with everyone else, and you're already where the party is. You're very welcome to book somewhere in the city instead if you'd rather — just tell us on the RSVP so we know who needs a room.</p>
+      <p class="deadline" data-i18n="t.stay.body">There are rooms at the venue itself, and it's by far the simplest option: no taxis late at night, and you're already where the party is. You're very welcome to book somewhere in the city instead if you'd rather — just tell us on the RSVP so we know who needs a room.</p>
       <p style="margin:0 0 1.5rem"><strong>Pałac Pawłowice</strong><br>Pawłowicka 87/89, 51-250 Wrocław</p>
       <a class="btn btn-solid" href="#/rsvp" data-i18n="cta.rsvp">Send your RSVP</a>
     </div>
@@ -473,7 +477,7 @@
     <div class="days">
       <div class="day main">
         <div class="day-name" data-i18n="s.price">100 PLN<em data-i18n="s.price.unit">per person, per night</em></div>
-        <p class="day-what"><span data-i18n="s.price.note">That's roughly €25 if you pay in euros, or £22 in pounds — a little above the exact conversion, which covers the transfer fees at our end.</span></p>
+        <p class="day-what"><span data-i18n="s.price.note">That's €25 if you pay in euros, or £20 in pounds.</span></p>
       </div>
       <div class="day">
         <div class="day-name" data-i18n="s.nights">Which nights</div>
@@ -481,22 +485,22 @@
       </div>
       <div class="day">
         <div class="day-name" data-i18n="s.breakfast">Breakfast</div>
-        <p class="day-what"><span class="todo" style="margin-top:0"><b>To add</b><span data-i18n="s.breakfast.todo">Confirm with the palace whether breakfast is included in the 100 zł.</span></span></p>
+        <p class="day-what"><span data-i18n="s.breakfast.note">Still to be confirmed — we're checking with the palace whether breakfast is included.</span></p>
       </div>
       <div class="day">
         <div class="day-name" data-i18n="s.hold">Holding a room</div>
-        <p class="day-what"><span data-i18n="s.hold.note">Say yes on the RSVP and we will hold one for you. Rooms are limited, so the sooner you tell us, the better.</span></p>
+        <p class="day-what"><span data-i18n="s.hold.note">Choose “I'm interested in a room at the venue” on the RSVP and we will hold one for you. Rooms are limited, so the sooner you tell us, the better.</span></p>
       </div>
     </div>
   </section>
 
   <section class="weekend wrap">
     <h2 data-i18n="s.pay.h">How to pay</h2>
-    <p class="lede" data-i18n="s.pay.lede">We collect the payments ourselves and settle with the palace, so it goes to us rather than to the venue. We'll send you your link once you've told us on the RSVP.</p>
+    <p class="lede" data-i18n="s.pay.lede">We collect the payments ourselves and settle with the palace, so it goes to us rather than to the venue. We'll send you the payment details once you've told us on the RSVP.</p>
     <div class="days">
       <div class="day">
         <div class="day-name" data-i18n="s.pay.uk">From the UK</div>
-        <p class="day-what"><span data-i18n="s.pay.uk.note">We'll send you a Monzo payment link by email. £22 per person, per night.</span></p>
+        <p class="day-what"><span data-i18n="s.pay.uk.note">We'll send you a Monzo payment link by email. £20 per person, per night.</span></p>
       </div>
       <div class="day">
         <div class="day-name" data-i18n="s.pay.es">From Spain</div>
@@ -505,14 +509,14 @@
       <div class="day">
         <div class="day-name" data-i18n="s.pay.pl">From Poland</div>
         <p class="day-what"><span data-i18n="s.pay.pl.note">100 zł per person, per night.</span>
-          <span class="todo"><b>To add</b><span data-i18n="s.pay.pl.todo">Bank details / BLIK number for Polish guests still to be added here.</span></span></p>
+          <span class="veil-inline"><span class="todo" aria-hidden="true"><b>To add</b><span data-i18n="s.pay.pl.todo">Bank details / BLIK number for Polish guests still to be added here.</span></span><span class="veil-label"><span data-i18n="soon.short">More details soon</span></span></span></p>
       </div>
     </div>
   </section>
 
   <section class="weekend wrap">
     <h2 data-i18n="s.city.h">Prefer to stay in the city?</h2>
-    <p class="lede" data-i18n="s.city.lede">Completely fine — plenty of guests will. Wrocław's old town has hotels at every price, and it's about 25 minutes from the palace by taxi. Just choose "no" on the RSVP so we don't hold a room you won't use, and plan how you'll get back after the party.</p>
+    <p class="lede" data-i18n="s.city.lede">Completely fine. Wrocław's old town has hotels at every price, and it's about 25 minutes from the palace by taxi. Just choose “I'll find accommodation on my own” on the RSVP so we don't hold a room you won't use, and plan how you'll get back after the party.</p>
     <nav class="links" aria-label="Practical">
       <div><h3 data-i18n="s.city.where">Where to look</h3><p data-i18n="s.city.where.b">Anywhere around the Rynek puts you in the middle of things.</p></div>
       <div><h3 data-i18n="s.city.late">Getting back late</h3><p data-i18n="s.city.late.b">Bolt and Uber run all night in Wrocław. Expect around 80 PLN.</p></div>
@@ -523,7 +527,7 @@
 
   <section class="band">
     <div class="wrap">
-      <p class="deadline" data-i18n="s.cta.note">Ready? Tell us whether you need a room and we'll send your payment link.</p>
+      <p class="deadline" data-i18n="s.cta.note">Ready? Tell us whether you need a room and we'll send you the payment details.</p>
       <a class="btn btn-solid" href="#/rsvp" data-i18n="cta.rsvp">Send your RSVP</a>
     </div>
   </section>
@@ -627,7 +631,7 @@ const S = {
 "nav.stay": "Stay",
 "nav.rsvp": "RSVP",
 "nav.faq": "FAQ",
-"hero.eyebrow": "WE ARE GETTING MARRIED",
+"hero.eyebrow": "WE ARE GETTING MARRIED!",
 "cta.rsvp": "Send your RSVP",
 "cta.details": "See the weekend",
 "video.placeholder": "Video coming soon",
@@ -638,19 +642,22 @@ const S = {
 "video.rsvp.body": "A minute on what we're asking and why: which days you can join, what you'd like to eat, and whether you need a room or a lift from the city.",
 "weekend.title": "Three days, one that matters most",
 "weekend.lede": "Come for the whole weekend if you can. If you can only make one day, make it Saturday.",
+"day.fri.date": "Fri 9 July",
+"day.sat.date": "Sat 10 July",
+"day.sun.date": "Sun 11 July",
 "day.fri.label": "Optional",
 "day.fri.what": "Wrocław city tour",
 "day.fri.note": "Special guided walking tour of Wrocław starting approximately midday (more details to come soon).",
 "day.sat.label": "The wedding day",
 "day.sat.what": "Ceremony and party",
-"day.sat.note": "Ceremony at [time] at Pałac Pawłowice, dinner, and dancing until late.",
+"day.sat.note": "Ceremony in the afternoon at Pałac Pawłowice, dinner, and dancing until late.",
 "day.flag": "Don't miss this one",
 "day.sun.label": "Optional",
 "day.sun.what": "Boat trip and lunch",
 "day.sun.note": "A boat tour along the Odra with lunch on board (more details to come soon).",
 "link.wedding": "Times, venue, what to wear.",
 "link.travel": "Flights to Wrocław and the ride to the palace.",
-"link.stay": "Rooms we've held, and the booking deadline.",
+"link.stay": "Rooms at the palace, and how to pay.",
 "link.rsvp": "Tell us which days you're coming.",
 "count.label": "days to go",
 "count.deadline": "No deadline yet — reply whenever you know, and we will tell you if it ever becomes last call.",
@@ -680,11 +687,6 @@ const S = {
 "f.kids": "Children",
 "f.names": "Names of everyone, including you",
 "f.food": "Food",
-"f.meal": "Main course",
-"f.meal.meat": "Meat",
-"f.meal.fish": "Fish",
-"f.meal.veg": "Vegetarian",
-"f.meal.vegan": "Vegan",
 "f.diet": "Allergies or anything we should know",
 "f.logistics": "Room and transport",
 "f.room": "Do you need a room from our hotel block?",
@@ -698,14 +700,17 @@ const S = {
 "f.message": "Anything else?",
 "f.message.lab": "A message for us",
 "f.send": "Send my reply",
-"f.note": "You can send the form again if your plans change — just tell us in the message.",
 "f.done.title": "Thank you",
 "f.done.body": "We've got your reply. We'll be in touch closer to the date with the final details.",
 "f.done.back": "Back to the home page",
 "f.sending": "Sending…",
 "f.err.send": "Something went wrong and your reply wasn't sent. Please try again, or email us at zuandluis@gmail.com.",
 "f.acc": "Accommodation",
-"f.acc.q": "Would you like to book accommodation at the venue hotel?",
+"f.acc.q": "Where will you be staying?",
+"f.acc.family": "Staying with family or friends",
+"f.acc.own": "I'll find accommodation on my own",
+"f.acc.venue": "I'm interested in a room at the venue",
+"f.acc.venue.note": "£20 / €25 / 100 zł per person, per night",
 "f.yes.short": "Yes",
 "f.no.short": "No",
 "f.err.choose": "Please choose one.",
@@ -715,15 +720,15 @@ const S = {
 "f.paid.q.other": "The room is 100 PLN per person, per night (£20 or €25). Have you paid us yet?",
 "f.paid.yes": "Yes, I have paid",
 "f.paid.no": "No, not yet",
-"f.food.hint": "The menu is entirely vegan, so there's nothing to choose — but we do need to know about allergies, for anyone in your group.",
+"f.food.hint": "Does anyone in your group have food allergies or intolerances? Let us know below.",
 "t.title": "Travel",
 "t.lede": "Wrocław has its own airport with direct flights from Spain and the UK, and the palace is a short ride from it. Here's everything you need.",
 "video.travel.title": "Getting to us",
 "video.travel.body": "A couple of minutes on where to fly, how to get from the airport to the palace, and why we'd rather you stayed at the venue with everyone else.",
 "t.flights.h": "Flights",
-"t.flights.lede": "Fly into Wrocław (WRO) if you can — it's a small, easy airport and it puts you 30 minutes from the palace.",
+"t.flights.lede": "Fly into Wrocław (WRO) if you can — it's a small, easy airport and it puts you about 40 minutes from the palace.",
 "t.fl.es": "From Spain",
-"t.fl.es.note": "Low-cost airlines fly to Wrocław from several Spanish cities, though not every day. If nothing lines up with the Friday, look at Kraków or Warsaw and take a train from there.",
+"t.fl.es.note": "Barcelona and Mallorca both have direct flights to Wrocław, and that's where most of you will fly from. They don't run every day, so check which days line up with the weekend. From elsewhere in Spain, connect through one of them, or fly to Kraków or Warsaw and take the train.",
 "t.fl.uk": "From London",
 "t.fl.uk.note": "There are direct flights from London to Wrocław, usually from Luton or Stansted, and the flight takes a little over two hours.",
 "t.fl.other": "Other airports",
@@ -748,7 +753,7 @@ const S = {
 "t.know.time": "Time zone",
 "t.know.time.b": "Same as Spain, one hour ahead of the UK.",
 "t.stay.h": "Stay at the palace with us",
-"t.stay.body": "There are rooms at the venue itself, and it's by far the simplest option: no taxis late at night, breakfast with everyone else, and you're already where the party is. You're very welcome to book somewhere in the city instead if you'd rather — just tell us on the RSVP so we know who needs a room.",
+"t.stay.body": "There are rooms at the venue itself, and it's by far the simplest option: no taxis late at night, and you're already where the party is. You're very welcome to book somewhere in the city instead if you'd rather — just tell us on the RSVP so we know who needs a room.",
 "f.paid.hint": "If not, don't worry — we'll email you the payment details as soon as we get your reply.",
 "s.title": "Stay",
 "s.lede": "There are rooms in the palace itself. We'd love you to take one — everyone in the same place, no taxis at midnight.",
@@ -762,17 +767,17 @@ const S = {
 "s.nights": "Which nights",
 "s.nights.note": "Friday, Saturday and Sunday are all available. Most guests staying the whole weekend take Friday and Saturday night.",
 "s.hold": "Holding a room",
-"s.hold.note": "Say yes on the RSVP and we will hold one for you. Rooms are limited, so the sooner you tell us, the better.",
+"s.hold.note": "Choose “I'm interested in a room at the venue” on the RSVP and we will hold one for you. Rooms are limited, so the sooner you tell us, the better.",
 "s.pay.h": "How to pay",
-"s.pay.lede": "We collect the payments ourselves and settle with the palace, so it goes to us rather than to the venue. We'll send you your link once you've told us on the RSVP.",
+"s.pay.lede": "We collect the payments ourselves and settle with the palace, so it goes to us rather than to the venue. We'll send you the payment details once you've told us on the RSVP.",
 "s.pay.uk": "From the UK",
-"s.pay.uk.note": "We'll send you a Monzo payment link by email. £22 per person, per night.",
+"s.pay.uk.note": "We'll send you a Monzo payment link by email. £20 per person, per night.",
 "s.pay.es": "From Spain",
 "s.pay.es.note": "Bizum to Luis's phone number, which we'll send you by email. €25 per person, per night.",
 "s.pay.pl": "From Poland",
 "s.pay.pl.note": "100 zł per person, per night.",
 "s.city.h": "Prefer to stay in the city?",
-"s.city.lede": "Completely fine — plenty of guests will. Wrocław's old town has hotels at every price, and it's about 25 minutes from the palace by taxi. Just choose “no” on the RSVP so we don't hold a room you won't use, and plan how you'll get back after the party.",
+"s.city.lede": "Completely fine. Wrocław's old town has hotels at every price, and it's about 25 minutes from the palace by taxi. Just choose “I'll find accommodation on my own” on the RSVP so we don't hold a room you won't use, and plan how you'll get back after the party.",
 "s.city.where": "Where to look",
 "s.city.where.b": "Anywhere around the Rynek puts you in the middle of things.",
 "s.city.late": "Getting back late",
@@ -781,10 +786,10 @@ const S = {
 "s.city.july.b": "July is busy in Wrocław and the good places go first.",
 "s.city.tell": "Tell us either way",
 "s.city.tell.b": "The RSVP asks — that's all we need.",
-"s.cta.note": "Ready? Tell us whether you need a room and we'll send your payment link.",
+"s.cta.note": "Ready? Tell us whether you need a room and we'll send you the payment details.",
 "s.pay.pl.todo": "Bank details / BLIK number for Polish guests still to be added here.",
 "s.breakfast": "Breakfast",
-"s.breakfast.todo": "Confirm with the palace whether breakfast is included in the 100 zł.",
+"s.breakfast.note": "Still to be confirmed — we're checking with the palace whether breakfast is included.",
 "f.payfrom": "Where will you pay from?",
 "f.payfrom.uk": "United Kingdom — £20 per person, per night",
 "f.payfrom.es": "Spain — €25 per person, per night",
@@ -822,9 +827,9 @@ const S = {
 "nav.wedding": "La boda",
 "nav.travel": "Cómo llegar",
 "nav.stay": "Alojamiento",
-"nav.rsvp": "Confirmar",
+"nav.rsvp": "RSVP",
 "nav.faq": "Preguntas",
-"hero.eyebrow": "NOS CASAMOS",
+"hero.eyebrow": "¡NOS CASAMOS!",
 "cta.rsvp": "Confirma tu asistencia",
 "cta.details": "Ver el fin de semana",
 "video.placeholder": "Vídeo próximamente",
@@ -835,19 +840,22 @@ const S = {
 "video.rsvp.body": "Un minuto sobre lo que te preguntamos y por qué: qué días puedes venir, qué prefieres comer y si necesitas habitación o transporte desde la ciudad.",
 "weekend.title": "Tres días, uno imprescindible",
 "weekend.lede": "Ven el fin de semana entero si puedes. Si solo puedes un día, que sea el sábado.",
+"day.fri.date": "Vie 9 de julio",
+"day.sat.date": "Sáb 10 de julio",
+"day.sun.date": "Dom 11 de julio",
 "day.fri.label": "Opcional",
 "day.fri.what": "Tour por Wrocław",
 "day.fri.note": "Visita guiada especial por Wrocław, con salida aproximadamente a mediodía (pronto más detalles).",
 "day.sat.label": "El día de la boda",
 "day.sat.what": "Ceremonia y fiesta",
-"day.sat.note": "Ceremonia a las [hora] en el Pałac Pawłowice, cena y baile hasta tarde.",
+"day.sat.note": "Ceremonia por la tarde en el Pałac Pawłowice, cena y baile hasta tarde.",
 "day.flag": "Este no te lo pierdas",
 "day.sun.label": "Opcional",
 "day.sun.what": "Paseo en barco y comida",
 "day.sun.note": "Un paseo en barco por el Oder con comida a bordo (pronto más detalles).",
 "link.wedding": "Horarios, lugar y cómo vestir.",
 "link.travel": "Vuelos a Wrocław y el traslado al palacio.",
-"link.stay": "Habitaciones reservadas y fecha límite.",
+"link.stay": "Habitaciones en el palacio y cómo pagar.",
 "link.rsvp": "Dinos qué días vienes.",
 "count.label": "días para la boda",
 "count.deadline": "Todavía no hay fecha límite: contéstanos cuando lo sepas y ya avisaremos si en algún momento corre prisa.",
@@ -877,11 +885,6 @@ const S = {
 "f.kids": "Niños",
 "f.names": "Nombres de todos, contigo incluido",
 "f.food": "Comida",
-"f.meal": "Plato principal",
-"f.meal.meat": "Carne",
-"f.meal.fish": "Pescado",
-"f.meal.veg": "Vegetariano",
-"f.meal.vegan": "Vegano",
 "f.diet": "Alergias o algo que debamos saber",
 "f.logistics": "Habitación y transporte",
 "f.room": "¿Necesitas habitación en el hotel que hemos reservado?",
@@ -895,14 +898,17 @@ const S = {
 "f.message": "¿Algo más?",
 "f.message.lab": "Un mensaje para nosotros",
 "f.send": "Enviar respuesta",
-"f.note": "Puedes volver a enviar el formulario si cambian tus planes: cuéntanoslo en el mensaje.",
 "f.done.title": "Gracias",
 "f.done.body": "Hemos recibido tu respuesta. Te escribiremos más cerca de la fecha con los últimos detalles.",
 "f.done.back": "Volver al inicio",
 "f.sending": "Enviando…",
 "f.err.send": "Algo ha fallado y tu respuesta no se ha enviado. Inténtalo de nuevo o escríbenos a zuandluis@gmail.com.",
 "f.acc": "Alojamiento",
-"f.acc.q": "¿Quieres reservar alojamiento en el hotel del lugar de la boda?",
+"f.acc.q": "¿Dónde te vas a alojar?",
+"f.acc.family": "Me quedo con familia o amigos",
+"f.acc.own": "Buscaré alojamiento por mi cuenta",
+"f.acc.venue": "Me interesa una habitación en el lugar de la boda",
+"f.acc.venue.note": "20 £ / 25 € / 100 zł por persona y noche",
 "f.yes.short": "Sí",
 "f.no.short": "No",
 "f.err.choose": "Elige una opción, por favor.",
@@ -912,15 +918,15 @@ const S = {
 "f.paid.q.other": "La habitación cuesta 100 PLN por persona y noche (25 € o 20 £). ¿Ya nos has pagado?",
 "f.paid.yes": "Sí, ya he pagado",
 "f.paid.no": "No, todavía no",
-"f.food.hint": "El menú es totalmente vegano, así que no hay nada que elegir, pero sí necesitamos saber de alergias de cualquiera de vosotros.",
+"f.food.hint": "¿Alguien de vuestro grupo tiene alergias o intolerancias alimentarias? Cuéntanoslo aquí abajo.",
 "t.title": "Cómo llegar",
 "t.lede": "Wrocław tiene aeropuerto propio con vuelos directos desde España y el Reino Unido, y el palacio queda a un trayecto corto. Aquí tienes todo lo necesario.",
 "video.travel.title": "Cómo llegar hasta nosotros",
 "video.travel.body": "Un par de minutos sobre dónde volar, cómo ir del aeropuerto al palacio y por qué preferimos que te quedes en el mismo sitio que el resto.",
 "t.flights.h": "Vuelos",
-"t.flights.lede": "Vuela a Wrocław (WRO) si puedes: es un aeropuerto pequeño y cómodo, a 30 minutos del palacio.",
+"t.flights.lede": "Vuela a Wrocław (WRO) si puedes: es un aeropuerto pequeño y cómodo, a unos 40 minutos del palacio.",
 "t.fl.es": "Desde España",
-"t.fl.es.note": "Varias aerolíneas de bajo coste vuelan a Wrocław desde distintas ciudades españolas, aunque no todos los días. Si no encaja con el viernes, mira Cracovia o Varsovia y sigue en tren.",
+"t.fl.es.note": "Desde Barcelona y Mallorca hay vuelos directos a Wrocław, y es desde donde volará la mayoría. No salen todos los días, así que mira qué días encajan con el fin de semana. Desde otras ciudades de España, haz escala en una de ellas o vuela a Cracovia o Varsovia y sigue en tren.",
 "t.fl.uk": "Desde Londres",
 "t.fl.uk.note": "Hay vuelos directos de Londres a Wrocław, normalmente desde Luton o Stansted, y el vuelo dura poco más de dos horas.",
 "t.fl.other": "Otros aeropuertos",
@@ -945,7 +951,7 @@ const S = {
 "t.know.time": "Huso horario",
 "t.know.time.b": "La misma hora que en España, una hora más que en el Reino Unido.",
 "t.stay.h": "Quédate con nosotros en el palacio",
-"t.stay.body": "Hay habitaciones en el propio palacio y es, con diferencia, la opción más cómoda: sin taxis de madrugada, desayuno con todos y ya estás donde está la fiesta. Si prefieres alojarte en la ciudad, ningún problema: dínoslo en el formulario para saber quién necesita habitación.",
+"t.stay.body": "Hay habitaciones en el propio palacio y es, con diferencia, la opción más cómoda: sin taxis de madrugada y ya estás donde está la fiesta. Si prefieres alojarte en la ciudad, ningún problema: dínoslo en el formulario para saber quién necesita habitación.",
 "f.paid.hint": "Si todavía no, tranquilo: te enviaremos los datos de pago por correo en cuanto recibamos tu respuesta.",
 "s.title": "Alojamiento",
 "s.lede": "Hay habitaciones en el propio palacio. Nos encantaría que te quedaras en una: todos en el mismo sitio y sin taxis a medianoche.",
@@ -959,17 +965,17 @@ const S = {
 "s.nights": "Qué noches",
 "s.nights.note": "Están disponibles viernes, sábado y domingo. Quien se queda todo el fin de semana suele coger viernes y sábado.",
 "s.hold": "Reservar habitación",
-"s.hold.note": "Marca que sí en el formulario y te guardamos una. Las plazas son limitadas, así que cuanto antes nos lo digas, mejor.",
+"s.hold.note": "Marca «Me interesa una habitación en el lugar de la boda» en el formulario y te guardamos una. Las plazas son limitadas, así que cuanto antes nos lo digas, mejor.",
 "s.pay.h": "Cómo pagar",
 "s.pay.lede": "Nosotros recogemos los pagos y liquidamos con el palacio, así que se nos paga a nosotros y no al hotel. Te enviaremos los datos en cuanto nos lo digas en el formulario.",
 "s.pay.uk": "Desde el Reino Unido",
-"s.pay.uk.note": "Te enviaremos un enlace de pago de Monzo por correo. 22 £ por persona y noche.",
+"s.pay.uk.note": "Te enviaremos un enlace de pago de Monzo por correo. 20 £ por persona y noche.",
 "s.pay.es": "Desde España",
 "s.pay.es.note": "Bizum al número de teléfono de Luis, que te enviaremos por correo. 25 € por persona y noche.",
 "s.pay.pl": "Desde Polonia",
 "s.pay.pl.note": "100 zł por persona y noche.",
 "s.city.h": "¿Prefieres alojarte en la ciudad?",
-"s.city.lede": "Sin problema: mucha gente lo hará. El casco antiguo de Wrocław tiene hoteles de todos los precios y está a unos 25 minutos del palacio en taxi. Marca “no” en el formulario para que no guardemos una habitación que no vas a usar, y piensa cómo volverás después de la fiesta.",
+"s.city.lede": "Sin problema. El casco antiguo de Wrocław tiene hoteles de todos los precios y está a unos 25 minutos del palacio en taxi. Marca «Buscaré alojamiento por mi cuenta» en el formulario para que no guardemos una habitación que no vas a usar, y piensa cómo volverás después de la fiesta.",
 "s.city.where": "Dónde buscar",
 "s.city.where.b": "Cualquier sitio cerca del Rynek te deja en el centro de todo.",
 "s.city.late": "Volver de madrugada",
@@ -978,10 +984,10 @@ const S = {
 "s.city.july.b": "Julio es temporada alta en Wrocław y lo bueno vuela.",
 "s.city.tell": "Dínoslo igualmente",
 "s.city.tell.b": "El formulario lo pregunta; con eso nos vale.",
-"s.cta.note": "¿Listo? Dinos si necesitas habitación y te enviamos el enlace de pago.",
+"s.cta.note": "¿Listo? Dinos si necesitas habitación y te enviamos los datos de pago.",
 "s.pay.pl.todo": "Faltan por añadir aquí los datos bancarios / BLIK para los invitados polacos.",
 "s.breakfast": "Desayuno",
-"s.breakfast.todo": "Confirmar con el palacio si el desayuno está incluido en los 100 zł.",
+"s.breakfast.note": "Pendiente de confirmar: estamos comprobando con el palacio si el desayuno está incluido.",
 "f.payfrom": "¿Desde dónde vas a pagar?",
 "f.payfrom.uk": "Reino Unido: 20 £ por persona y noche",
 "f.payfrom.es": "España: 25 € por persona y noche",
@@ -1019,9 +1025,9 @@ const S = {
 "nav.wedding": "Ślub",
 "nav.travel": "Dojazd",
 "nav.stay": "Nocleg",
-"nav.rsvp": "Potwierdzenie",
+"nav.rsvp": "RSVP",
 "nav.faq": "Pytania",
-"hero.eyebrow": "BIERZEMY ŚLUB",
+"hero.eyebrow": "BIERZEMY ŚLUB!",
 "cta.rsvp": "Potwierdź obecność",
 "cta.details": "Zobacz plan weekendu",
 "video.placeholder": "Film wkrótce",
@@ -1032,19 +1038,22 @@ const S = {
 "video.rsvp.body": "Minuta o tym, o co pytamy i dlaczego: w które dni możesz być, co wolisz zjeść i czy potrzebujesz noclegu albo transportu z miasta.",
 "weekend.title": "Trzy dni, jeden najważniejszy",
 "weekend.lede": "Przyjedź na cały weekend, jeśli możesz. Jeśli tylko na jeden dzień — niech to będzie sobota.",
+"day.fri.date": "Pt 9 lipca",
+"day.sat.date": "Sob 10 lipca",
+"day.sun.date": "Nd 11 lipca",
 "day.fri.label": "Nieobowiązkowo",
 "day.fri.what": "Zwiedzanie Wrocławia",
 "day.fri.note": "Specjalne zwiedzanie Wrocławia z przewodnikiem, start mniej więcej w południe (szczegóły wkrótce).",
 "day.sat.label": "Dzień ślubu",
 "day.sat.what": "Ceremonia i przyjęcie",
-"day.sat.note": "Ceremonia o [godzina] w Pałacu Pawłowice, kolacja i zabawa do późna.",
+"day.sat.note": "Ceremonia po południu w Pałacu Pawłowice, kolacja i zabawa do późna.",
 "day.flag": "Tego dnia nie przegap",
 "day.sun.label": "Nieobowiązkowo",
 "day.sun.what": "Rejs i obiad",
 "day.sun.note": "Rejs po Odrze z obiadem na pokładzie (szczegóły wkrótce).",
 "link.wedding": "Godziny, miejsce, dress code.",
 "link.travel": "Loty do Wrocławia i dojazd do pałacu.",
-"link.stay": "Zarezerwowane pokoje i termin rezerwacji.",
+"link.stay": "Pokoje w pałacu i jak zapłacić.",
 "link.rsvp": "Napisz, w które dni będziesz.",
 "count.label": "dni do ślubu",
 "count.deadline": "Nie ma jeszcze terminu — odpowiedz, gdy będziesz wiedzieć, a damy znać, gdyby zrobiło się pilnie.",
@@ -1074,11 +1083,6 @@ const S = {
 "f.kids": "Dzieci",
 "f.names": "Imiona wszystkich, razem z Tobą",
 "f.food": "Jedzenie",
-"f.meal": "Danie główne",
-"f.meal.meat": "Mięso",
-"f.meal.fish": "Ryba",
-"f.meal.veg": "Wegetariańskie",
-"f.meal.vegan": "Wegańskie",
 "f.diet": "Alergie lub inne ważne informacje",
 "f.logistics": "Nocleg i transport",
 "f.room": "Czy potrzebujesz pokoju z naszej rezerwacji?",
@@ -1092,14 +1096,17 @@ const S = {
 "f.message": "Coś jeszcze?",
 "f.message.lab": "Wiadomość do nas",
 "f.send": "Wyślij odpowiedź",
-"f.note": "Jeśli Twoje plany się zmienią, możesz wysłać formularz ponownie — napisz o tym w wiadomości.",
 "f.done.title": "Dziękujemy",
 "f.done.body": "Mamy Twoją odpowiedź. Odezwiemy się bliżej terminu ze szczegółami.",
 "f.done.back": "Wróć na stronę główną",
 "f.sending": "Wysyłanie…",
 "f.err.send": "Coś poszło nie tak i odpowiedź nie została wysłana. Spróbuj ponownie albo napisz do nas: zuandluis@gmail.com.",
 "f.acc": "Nocleg",
-"f.acc.q": "Czy chcesz zarezerwować nocleg w hotelu na miejscu wesela?",
+"f.acc.q": "Gdzie będziesz nocować?",
+"f.acc.family": "U rodziny lub znajomych",
+"f.acc.own": "Sam(a) znajdę nocleg",
+"f.acc.venue": "Jestem zainteresowany/a pokojem na miejscu wesela",
+"f.acc.venue.note": "20 £ / 25 € / 100 zł od osoby za noc",
 "f.yes.short": "Tak",
 "f.no.short": "Nie",
 "f.err.choose": "Wybierz jedną opcję.",
@@ -1109,15 +1116,15 @@ const S = {
 "f.paid.q.other": "Pokój kosztuje 100 zł od osoby za noc (20 £ lub 25 €). Czy płatność została już do nas wysłana?",
 "f.paid.yes": "Tak, zapłaciłem/am",
 "f.paid.no": "Nie, jeszcze nie",
-"f.food.hint": "Menu jest w całości wegańskie, więc nie ma co wybierać — ale musimy wiedzieć o alergiach kogokolwiek z Waszej grupy.",
+"f.food.hint": "Czy ktoś z Waszej grupy ma alergie lub nietolerancje pokarmowe? Napisz o tym poniżej.",
 "t.title": "Dojazd",
 "t.lede": "Wrocław ma własne lotnisko z bezpośrednimi lotami z Hiszpanii i Wielkiej Brytanii, a stamtąd do pałacu jest bardzo blisko. Poniżej wszystko, czego potrzebujesz.",
 "video.travel.title": "Jak do nas dotrzeć",
 "video.travel.body": "Kilka minut o tym, dokąd lecieć, jak dostać się z lotniska do pałacu i dlaczego wolelibyśmy, żebyś nocował/a razem z resztą gości.",
 "t.flights.h": "Loty",
-"t.flights.lede": "Jeśli możesz, leć do Wrocławia (WRO) — to małe, wygodne lotnisko, a stamtąd do pałacu jest jakieś 30 minut.",
+"t.flights.lede": "Jeśli możesz, leć do Wrocławia (WRO) — to małe, wygodne lotnisko, a stamtąd do pałacu jest jakieś 40 minut.",
 "t.fl.es": "Z Hiszpanii",
-"t.fl.es.note": "Tanie linie latają do Wrocławia z kilku hiszpańskich miast, choć nie codziennie. Jeśli nic nie pasuje na piątek, sprawdź Kraków lub Warszawę i dalej pociąg.",
+"t.fl.es.note": "Z Barcelony i Majorki są bezpośrednie loty do Wrocławia i stamtąd poleci większość gości z Hiszpanii. Nie latają codziennie, więc sprawdź, które dni pasują do weekendu. Z innych miast w Hiszpanii leć z przesiadką w jednym z nich albo do Krakowa lub Warszawy i dalej pociągiem.",
 "t.fl.uk": "Z Londynu",
 "t.fl.uk.note": "Z Londynu są bezpośrednie loty do Wrocławia, zwykle z Luton lub Stansted; lot trwa nieco ponad dwie godziny.",
 "t.fl.other": "Inne lotniska",
@@ -1142,7 +1149,7 @@ const S = {
 "t.know.time": "Strefa czasowa",
 "t.know.time.b": "Ta sama co w Hiszpanii, godzina więcej niż w Wielkiej Brytanii.",
 "t.stay.h": "Zostań z nami w pałacu",
-"t.stay.body": "W samym pałacu są pokoje i to zdecydowanie najprostsze rozwiązanie: żadnych nocnych taksówek, śniadanie razem z resztą gości i wszystko dzieje się tam, gdzie śpisz. Jeśli wolisz nocleg w mieście — proszę bardzo, tylko zaznacz to w formularzu, żebyśmy wiedzieli, kto potrzebuje pokoju.",
+"t.stay.body": "W samym pałacu są pokoje i to zdecydowanie najprostsze rozwiązanie: żadnych nocnych taksówek i wszystko dzieje się tam, gdzie śpisz. Jeśli wolisz nocleg w mieście — proszę bardzo, tylko zaznacz to w formularzu, żebyśmy wiedzieli, kto potrzebuje pokoju.",
 "f.paid.hint": "Jeśli jeszcze nie — spokojnie, dane do płatności wyślemy mailem zaraz po otrzymaniu odpowiedzi.",
 "s.title": "Nocleg",
 "s.lede": "Pokoje są w samym pałacu. Bardzo chcielibyśmy, żebyś z nich skorzystał/a — wszyscy w jednym miejscu, żadnych taksówek o północy.",
@@ -1156,17 +1163,17 @@ const S = {
 "s.nights": "Które noce",
 "s.nights.note": "Dostępne są piątek, sobota i niedziela. Goście zostający na cały weekend zwykle biorą piątek i sobotę.",
 "s.hold": "Rezerwacja pokoju",
-"s.hold.note": "Zaznacz „tak” w formularzu, a zarezerwujemy pokój. Liczba miejsc jest ograniczona, więc im wcześniej dasz znać, tym lepiej.",
+"s.hold.note": "Zaznacz w formularzu „Jestem zainteresowany/a pokojem na miejscu wesela”, a zarezerwujemy pokój. Liczba miejsc jest ograniczona, więc im wcześniej dasz znać, tym lepiej.",
 "s.pay.h": "Jak zapłacić",
 "s.pay.lede": "Zbieramy płatności sami i rozliczamy się z pałacem, więc płacisz nam, a nie hotelowi. Dane wyślemy po otrzymaniu formularza.",
 "s.pay.uk": "Z Wielkiej Brytanii",
-"s.pay.uk.note": "Wyślemy mailem link do płatności Monzo. 22 £ od osoby za noc.",
+"s.pay.uk.note": "Wyślemy mailem link do płatności Monzo. 20 £ od osoby za noc.",
 "s.pay.es": "Z Hiszpanii",
 "s.pay.es.note": "Bizum na numer telefonu Luisa, który wyślemy mailem. 25 € od osoby za noc.",
 "s.pay.pl": "Z Polski",
 "s.pay.pl.note": "100 zł od osoby za noc.",
 "s.city.h": "Wolisz nocleg w mieście?",
-"s.city.lede": "Nie ma sprawy — część gości tak zrobi. Na wrocławskiej starówce są hotele w każdej cenie, a stamtąd do pałacu jest jakieś 25 minut taksówką. Zaznacz w formularzu „nie”, żebyśmy nie trzymali niepotrzebnie pokoju, i pomyśl, jak wrócisz po zabawie.",
+"s.city.lede": "Nie ma sprawy. Na wrocławskiej starówce są hotele w każdej cenie, a stamtąd do pałacu jest jakieś 25 minut taksówką. Zaznacz w formularzu „Sam(a) znajdę nocleg”, żebyśmy nie trzymali niepotrzebnie pokoju, i pomyśl, jak wrócisz po zabawie.",
 "s.city.where": "Gdzie szukać",
 "s.city.where.b": "Cokolwiek w okolicy Rynku stawia Cię w samym centrum.",
 "s.city.late": "Powrót nad ranem",
@@ -1178,7 +1185,7 @@ const S = {
 "s.cta.note": "Gotowe? Napisz, czy potrzebujesz pokoju, a wyślemy dane do płatności.",
 "s.pay.pl.todo": "Tu trzeba jeszcze dodać dane do przelewu / numer BLIK dla gości z Polski.",
 "s.breakfast": "Śniadanie",
-"s.breakfast.todo": "Potwierdzić w pałacu, czy śniadanie jest wliczone w 100 zł.",
+"s.breakfast.note": "Do potwierdzenia — sprawdzamy w pałacu, czy śniadanie jest wliczone w cenę.",
 "f.payfrom": "Skąd będziesz płacić?",
 "f.payfrom.uk": "Wielka Brytania — 20 £ od osoby za noc",
 "f.payfrom.es": "Hiszpania — 25 € od osoby za noc",
@@ -1219,13 +1226,15 @@ function setLang(code){
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const v = dict[el.dataset.i18n]; if(!v) return;
     if(el.querySelector(".req")) el.innerHTML = v.replace("*",'<span class="req">*</span>');
+    else if(el.querySelector("[data-i18n]")) el.firstChild.nodeValue = v;
     else el.textContent = v;
   });
   document.querySelectorAll(".lang").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.lang===code)));
   try{ localStorage.setItem("lang", code); }catch(e){}
 }
 document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
-try{ const saved = localStorage.getItem("lang"); if(saved) setLang(saved); }catch(e){}
+let savedLang = null; try{ savedLang = localStorage.getItem("lang"); }catch(e){}
+setLang(S[savedLang] ? savedLang : "en");
 
 /* routing */
 function route(){
@@ -1250,7 +1259,7 @@ const form = document.getElementById("rsvpForm");
 const yesBlock = document.getElementById("yesBlock");
 form.addEventListener("change", e=>{
   if(e.target.name === "attending") yesBlock.classList.toggle("hidden", e.target.value !== "yes");
-  if(e.target.name === "accommodation") document.getElementById("paidBlock").classList.toggle("hidden", e.target.value !== "yes");
+  if(e.target.name === "accommodation") document.getElementById("paidBlock").classList.toggle("hidden", e.target.value !== "venue");
   if(e.target.name === "payFrom"){
     const q = document.getElementById("paidQ");
     q.dataset.i18n = "f.paid.q." + e.target.value;
@@ -1279,7 +1288,7 @@ form.addEventListener("submit", async e=>{
   const acc = fd.get("accommodation");
   const accBad = attending === "yes" && !acc;
   show("e-accommodation", accBad); if(accBad) ok = false;
-  const paidBad = attending === "yes" && acc === "yes" && !fd.get("paid");
+  const paidBad = attending === "yes" && acc === "venue" && !fd.get("paid");
   show("e-paid", paidBad); if(paidBad) ok = false;
   if(!ok){ document.querySelector(".err.on")?.scrollIntoView({block:"center"}); return; }
 
@@ -1287,7 +1296,7 @@ form.addEventListener("submit", async e=>{
   payload.days = days.join(", ");
   payload.language = document.documentElement.lang;
   payload.sentAt = new Date().toISOString();
-  if(payload.accommodation !== "yes"){ delete payload.paid; delete payload.payFrom; }
+  if(payload.accommodation !== "venue"){ delete payload.paid; delete payload.payFrom; }
   if(attending !== "yes"){ ["adults","names","diet","accommodation","payFrom","paid"].forEach(k=>delete payload[k]); }
 
   const btn = document.getElementById("sendBtn");
