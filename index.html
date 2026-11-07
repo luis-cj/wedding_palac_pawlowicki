@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Zuzanna &amp; Luis — 10 July 2027, Wrocław</title>
+<title>Zu &amp; Luis — 10 July 2027, Wrocław</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -81,8 +81,6 @@
   .frame{aspect-ratio:16/9;background:#4C544A;display:grid;place-items:center;color:#DCE2D8}
   .frame.photo{overflow:hidden}
   .frame.photo img{width:100%;height:100%;object-fit:cover;display:block}
-  .veil.soon{margin-top:0}
-  .veil.soon > .day{filter:blur(5px);opacity:.75;pointer-events:none;user-select:none}
   .frame.portrait{aspect-ratio:9/16;width:min(100%,20rem);justify-self:center;background:#000;overflow:hidden}
   .frame.portrait video{width:100%;height:100%;object-fit:cover;display:block}
   .frame span{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase}
@@ -145,13 +143,19 @@
   .hidden{display:none}
   .todo{border:1px dashed var(--red);color:var(--red);padding:.9rem 1.1rem;margin-top:1rem;font-size:.92rem}
   .todo b{display:block;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;margin-bottom:.3rem}
-  .veil{position:relative;margin-top:3rem}
-  .veil > .links{margin-top:0;filter:blur(5px);opacity:.75;pointer-events:none;user-select:none}
-  .veil-label{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:1rem}
-  .veil-label span{font-family:"Cormorant Garamond",serif;font-size:clamp(1.4rem,3.5vw,2rem);letter-spacing:.04em;
-    background:color-mix(in srgb,var(--bg) 88%,transparent);padding:.65rem 1.5rem}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .btn[disabled]{opacity:.6;cursor:wait}
+  .pop{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1.25rem;background:rgba(10,9,8,.72);backdrop-filter:blur(3px);opacity:0;transition:opacity .35s ease}
+  .pop.on{opacity:1}
+  .pop[hidden]{display:none}
+  .pop-card{position:relative;max-width:26rem;width:100%;background:var(--cream-deep);border:1px solid var(--rule);padding:2.4rem 1.75rem 2rem;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5);transform:translateY(12px) scale(.98);transition:transform .35s ease}
+  .pop.on .pop-card{transform:none}
+  .pop-icon{font-size:3rem;line-height:1;margin-bottom:.6rem}
+  .pop-card h2{font-size:clamp(1.7rem,6vw,2.1rem);margin:0 0 .9rem}
+  .pop-card p{margin:0 0 1.6rem;color:var(--fg-soft)}
+  .pop-x{position:absolute;top:.5rem;right:.75rem;background:none;border:0;color:var(--fg-soft);font-size:1.6rem;line-height:1;padding:.4rem .6rem;cursor:pointer}
+  .pop-x:hover{color:var(--fg)}
+  @media (prefers-reduced-motion:reduce){.pop,.pop-card{transition:none}}
   .done{text-align:center;border:1px solid var(--rule);padding:clamp(2rem,5vw,3rem);background:var(--field)}
   .done h2{font-size:2rem;color:var(--red);margin-bottom:.75rem}
   .note{font-size:.85rem;color:var(--fg-soft);border-top:1px solid var(--rule);padding-top:1.25rem;margin-top:2rem}
@@ -186,8 +190,8 @@
 <div class="page on" data-page="home">
   <section class="hero wrap">
     <h1 class="eyebrow" data-i18n="hero.eyebrow">WE ARE GETTING MARRIED!</h1>
-    <p class="names">Zuzanna &amp; Luis</p>
-    <div class="arch" role="img" aria-label="Zuzanna and Luis in Wrocław"></div>
+    <p class="names">Zu &amp; Luis</p>
+    <div class="arch" role="img" aria-label="Zu and Luis in Wrocław"></div>
     <p class="when">10 . 07 . 2027</p>
     <p class="where">Pałac Pawłowice · 51-250 Wrocław</p>
     <div class="cta-row">
@@ -198,10 +202,10 @@
 
   <section class="video">
     <div class="wrap video-grid">
-      <div class="frame portrait"><video src="media/intro.mp4" autoplay muted loop playsinline preload="auto" aria-label="Zuzanna and Luis"></video></div>
+      <div class="frame portrait"><video src="media/intro.mp4" autoplay muted loop playsinline preload="auto" aria-label="Zu and Luis"></video></div>
       <div>
         <h2 data-i18n="video.home.title">Hello from both of us</h2>
-        <p data-i18n="video.home.body">A proper video is coming in January; for now, a little hello from Brighton :)</p>
+        <p data-i18n="video.home.body">In January we'll post a summary video of the site. For now, a little hello from Brighton :)</p>
       </div>
     </div>
   </section>
@@ -216,22 +220,13 @@
       </div>
       <div class="day main">
         <div class="day-name" data-i18n="day.sat.date">Sat 10 July<em data-i18n="day.sat.label">The wedding day</em></div>
-        <p class="day-what"><strong data-i18n="day.sat.what">Ceremony and party</strong><span data-i18n="day.sat.note">Ceremony in the afternoon at Pałac Pawłowice, dinner, and dancing until late.</span></p>
+        <p class="day-what"><strong data-i18n="day.sat.what">Ceremony and party</strong><span data-i18n="day.sat.note">Ceremony in the afternoon at Pałac Pawłowice, lots of food, and dancing until late.</span></p>
         <span class="flag" data-i18n="day.flag">Don't miss this one</span>
       </div>
       <div class="day">
         <div class="day-name" data-i18n="day.sun.date">Sun 11 July<em data-i18n="day.sun.label">Optional</em></div>
-        <p class="day-what"><strong data-i18n="day.sun.what">Boat trip</strong><span data-i18n="day.sun.note">A boat tour along the Odra, more details to come soon.</span></p>
+        <p class="day-what"><strong data-i18n="day.sun.what">Boat trip</strong><span data-i18n="day.sun.note">A boat tour along the Odra (more details to come soon).</span></p>
       </div>
-    </div>
-    <div class="veil">
-    <nav class="links" aria-hidden="true" aria-label="Sections">
-      <a href="#/wedding" tabindex="-1"><h3 data-i18n="nav.wedding">The wedding</h3><p data-i18n="link.wedding">The day itself and the venue.</p></a>
-      <a href="#/travel" tabindex="-1"><h3 data-i18n="nav.travel">Travel</h3><p data-i18n="link.travel">Flights to Wrocław and the ride to the palace.</p></a>
-      <a href="#/stay" tabindex="-1"><h3 data-i18n="nav.stay">Stay</h3><p data-i18n="link.stay">Rooms at the palace.</p></a>
-      <a href="#/rsvp" tabindex="-1"><h3 data-i18n="nav.rsvp">RSVP</h3><p data-i18n="link.rsvp">Tell us which days you're coming.</p></a>
-    </nav>
-    <p class="veil-label"><span data-i18n="home.soon">More details to come soon</span></p>
     </div>
   </section>
 
@@ -239,7 +234,7 @@
     <div class="wrap">
       <p class="count" id="count">—</p>
       <p class="count-label" data-i18n="count.label">days to go</p>
-      <p class="deadline" data-i18n="count.deadline">There's no deadline yet. Reply when you know, and we'll let you know if that changes.</p>
+      <p class="deadline" data-i18n="count.deadline">Please reply by 21 March 2027.</p>
       <a class="btn btn-solid" href="#/rsvp" data-i18n="cta.rsvp">Send your RSVP</a>
     </div>
   </section>
@@ -280,8 +275,8 @@
           <legend data-i18n="f.days">Which days?</legend>
           <p class="hint" data-i18n="f.days.hint">Tick everything your group can join. Saturday is the wedding day; Friday and Sunday are optional. If you're arriving on different days, tell us at the end.</p>
           <label class="choice"><input type="checkbox" name="days" value="fri"><span><b data-i18n="f.day.fri">Friday 9 July — Wrocław city tour</b><small data-i18n="f.day.fri.note">Guided walking tour of Wrocław from around midday. Comfortable shoes.</small></span></label>
-          <label class="choice"><input type="checkbox" name="days" value="sat"><span><b data-i18n="f.day.sat">Saturday 10 July — the wedding</b><small data-i18n="f.day.sat.note">Ceremony, dinner and dancing at Pałac Pawłowice.</small></span></label>
-          <label class="choice"><input type="checkbox" name="days" value="sun"><span><b data-i18n="f.day.sun">Sunday 11 July — boat trip</b><small data-i18n="f.day.sun.note">A boat tour along the Odra, more details to come soon. Book your flight home for the evening.</small></span></label>
+          <label class="choice"><input type="checkbox" name="days" value="sat"><span><b data-i18n="f.day.sat">Saturday 10 July — the wedding</b><small data-i18n="f.day.sat.note">Ceremony, lots of food and dancing at Pałac Pawłowice.</small></span></label>
+          <label class="choice"><input type="checkbox" name="days" value="sun"><span><b data-i18n="f.day.sun">Sunday 11 July — boat trip</b><small data-i18n="f.day.sun.note">A boat tour along the Odra (more details to come soon). Book your flight home for the evening.</small></span></label>
           <p class="err" id="e-days" data-i18n="f.err.days">Please pick at least one day.</p>
         </fieldset>
 
@@ -444,7 +439,7 @@
 
   <section class="weekend wrap">
     <h2 data-i18n="s.city.h">Prefer to stay in the city?</h2>
-    <p class="lede" data-i18n="s.city.lede">That's fine. There are hotels at every price in Wrocław's old town, and it's about 25 minutes from the palace by taxi. Just choose “I'll find accommodation on my own” on the RSVP so we don't hold a room you won't use, and plan how you'll get back after the party.</p>
+    <p class="lede" data-i18n="s.city.lede">There are hotels at every price in Wrocław's old town, and it's about 25 minutes from the palace by taxi. Just choose “I'll find accommodation on my own” on the RSVP so we don't hold a room you won't use, and plan how you'll get back after the party.</p>
     <nav class="links" aria-label="Practical">
       <div><h3 data-i18n="s.city.where">Where to look</h3><p data-i18n="s.city.where.b">The area around the Rynek (main square) is the most central.</p></div>
       <div><h3 data-i18n="s.city.late">Getting back late</h3><p data-i18n="s.city.late.b">Bolt and Uber run all night in Wrocław. Expect around 80 PLN.</p></div>
@@ -455,7 +450,7 @@
 
   <section class="band">
     <div class="wrap">
-      <p class="deadline" data-i18n="s.cta.note">Ready? Tell us whether you'd like a room and we'll confirm by email whether we've managed to book it.</p>
+      <p class="deadline" data-i18n="s.cta.note">Ready? Tell us by 21 March 2027 whether you'd like a room and we'll confirm by email whether we've managed to book it.</p>
       <a class="btn btn-solid" href="#/rsvp" data-i18n="cta.rsvp">Send your RSVP</a>
     </div>
   </section>
@@ -473,7 +468,7 @@
       <div class="frame photo"><img src="media/palace.jpeg" alt="Pałac Pawłowice"></div>
       <div>
         <h2 data-i18n="venue.title">The venue</h2>
-        <p data-i18n="venue.body">Pałac Pawłowice, where the ceremony, dinner and party will all take place.</p>
+        <p data-i18n="venue.body">Pałac Pawłowice, where the ceremony and the party will both take place.</p>
       </div>
     </div>
   </section>
@@ -484,7 +479,7 @@
     <div class="days">
       <div class="day main">
         <div class="day-name" data-i18n="w.sched.soon">Coming soon<em data-i18n="w.sched.soon.unit">watch this page</em></div>
-        <p class="day-what"><span data-i18n="w.sched.soon.note">The ceremony will be in the afternoon, followed by dinner and dancing into the night. Plan to be at the palace for the whole day and evening.</span></p>
+        <p class="day-what"><span data-i18n="w.sched.soon.note">The ceremony will be in the afternoon, followed by lots of food and dancing into the night. Plan to be at the palace for the whole day and evening.</span></p>
       </div>
     </div>
   </section>
@@ -500,16 +495,13 @@
         <div class="day-name" data-i18n="w.kids">Children</div>
         <p class="day-what"><span data-i18n="w.kids.note">We've decided to keep the day adults-only. We know that makes things harder for some of you. We're sorry about that, and we really hope you can still come.</span></p>
       </div>
-      <div class="veil soon">
-      <div class="day" aria-hidden="true">
-        <div class="day-name" data-i18n="w.dress">What to wear</div>
-        <p class="day-what"><span class="todo" style="margin-top:0"><b>To add</b><span data-i18n="w.dress.todo">Dress code still to decide — one line here, plus a note that July in Wrocław is hot.</span></span></p>
+      <div class="day">
+        <div class="day-name" data-i18n="w.dress">Dress code</div>
+        <p class="day-what"><span data-i18n="w.dress.note">A standard wedding outfit is fine, but you're free to come however you like.</span></p>
       </div>
-      <div class="day" aria-hidden="true">
+      <div class="day">
         <div class="day-name" data-i18n="w.gifts">Gifts</div>
-        <p class="day-what"><span class="todo" style="margin-top:0"><b>To add</b><span data-i18n="w.gifts.todo">Decide what to say about gifts — nothing needed, a contribution, or a list.</span></span></p>
-      </div>
-      <p class="veil-label"><span data-i18n="soon.short">More details soon</span></p>
+        <p class="day-what"><span data-i18n="w.gifts.note">There won't be a gift list, but if you'd like to contribute to one of our future projects, more details on how to do that soon.</span></p>
       </div>
       <div class="day">
         <div class="day-name" data-i18n="w.where">Where to go</div>
@@ -517,19 +509,29 @@
       </div>
       <div class="day">
         <div class="day-name" data-i18n="w.help">If something goes wrong</div>
-        <p class="day-what"><span data-i18n="w.help.note">Write to us at zuandluis@gmail.com. We'll add a phone number for the day itself closer to the date.</span></p>
+        <p class="day-what"><span data-i18n="w.help.note">If you need any help, you can reach us on WhatsApp. You can also write to us at zuandluis@gmail.com.</span></p>
       </div>
     </div>
   </section>
 
   <section class="band">
     <div class="wrap">
-      <p class="deadline" data-i18n="w.cta.note">Coming? Let us know which days, and whether you'd like a room at the palace.</p>
+      <p class="deadline" data-i18n="w.cta.note">Coming? Let us know which days, and whether you'd like a room at the palace, by 21 March 2027.</p>
       <a class="btn btn-solid" href="#/rsvp" data-i18n="cta.rsvp">Send your RSVP</a>
     </div>
   </section>
 </div>
 </main>
+
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="popTitle" hidden>
+  <div class="pop-card">
+    <button class="pop-x" type="button" id="popX" aria-label="Close">&times;</button>
+    <div class="pop-icon" aria-hidden="true">🥠</div>
+    <h2 id="popTitle" data-i18n="pop.title">Fortune cookie</h2>
+    <p id="popBody" data-i18n="pop.body">Zu and Luis love you, you have been chosen to join their wedding!</p>
+    <button class="btn btn-solid" type="button" id="popOk" data-i18n="pop.btn">Yay, thank you!</button>
+  </div>
+</div>
 
 <footer>
   <div class="wrap foot-in">
@@ -560,7 +562,7 @@ const S = {
 "cta.rsvp": "Send your RSVP",
 "cta.details": "See the weekend",
 "video.home.title": "Hello from both of us",
-"video.home.body": "A proper video is coming in January; for now, a little hello from Brighton :)",
+"video.home.body": "In January we'll post a summary video of the site. For now, a little hello from Brighton :)",
 "weekend.title": "The wedding weekend",
 "weekend.lede": "Come for the whole weekend if you can. If you can only make one day, make it Saturday.",
 "day.fri.date": "Fri 9 July",
@@ -571,17 +573,18 @@ const S = {
 "day.fri.note": "Special guided walking tour of Wrocław starting approximately midday (more details to come soon).",
 "day.sat.label": "The wedding day",
 "day.sat.what": "Ceremony and party",
-"day.sat.note": "Ceremony in the afternoon at Pałac Pawłowice, dinner, and dancing until late.",
+"day.sat.note": "Ceremony in the afternoon at Pałac Pawłowice, lots of food, and dancing until late.",
 "day.flag": "Don't miss this one",
 "day.sun.label": "Optional",
 "day.sun.what": "Boat trip",
-"day.sun.note": "A boat tour along the Odra, more details to come soon.",
-"link.wedding": "The day itself and the venue.",
-"link.travel": "Flights to Wrocław and the ride to the palace.",
-"link.stay": "Rooms at the palace.",
-"link.rsvp": "Tell us which days you're coming.",
+"day.sun.note": "A boat tour along the Odra (more details to come soon).",
 "count.label": "days to go",
-"count.deadline": "There's no deadline yet. Reply when you know, and we'll let you know if that changes.",
+"count.deadline": "Please reply by 21 March 2027.",
+"pop.title": "Fortune cookie",
+"pop.body": "Zu and Luis love you, you have been chosen to join their wedding!",
+"pop.body2": "Welcome to Zu & Luis' wedding! Congratulations!",
+"pop.body3": "Hi friend! Can you smile for us? :)",
+"pop.btn": "Yay, thank you!",
 "foot.contact": "Questions? Write to us at zuandluis@gmail.com.",
 "rsvp.title": "RSVP",
 "rsvp.lede": "Please send one form per household, with everyone who's coming included.",
@@ -599,9 +602,9 @@ const S = {
 "f.day.fri": "Friday 9 July — Wrocław city tour",
 "f.day.fri.note": "Guided walking tour of Wrocław from around midday. Comfortable shoes.",
 "f.day.sat": "Saturday 10 July — the wedding",
-"f.day.sat.note": "Ceremony, dinner and dancing at Pałac Pawłowice.",
+"f.day.sat.note": "Ceremony, lots of food and dancing at Pałac Pawłowice.",
 "f.day.sun": "Sunday 11 July — boat trip",
-"f.day.sun.note": "A boat tour along the Odra, more details to come soon. Book your flight home for the evening.",
+"f.day.sun.note": "A boat tour along the Odra (more details to come soon). Book your flight home for the evening.",
 "f.err.days": "Please pick at least one day.",
 "f.party": "How many of you are coming?",
 "f.adults": "Number of people, including you",
@@ -680,7 +683,7 @@ const S = {
 "s.hold": "Holding a room",
 "s.hold.note": "Choose “I'm interested in a room at the venue” on the RSVP and we'll try to book one for you. Rooms are limited, so it helps to tell us early. We'll email you to confirm.",
 "s.city.h": "Prefer to stay in the city?",
-"s.city.lede": "That's fine. There are hotels at every price in Wrocław's old town, and it's about 25 minutes from the palace by taxi. Just choose “I'll find accommodation on my own” on the RSVP so we don't hold a room you won't use, and plan how you'll get back after the party.",
+"s.city.lede": "There are hotels at every price in Wrocław's old town, and it's about 25 minutes from the palace by taxi. Just choose “I'll find accommodation on my own” on the RSVP so we don't hold a room you won't use, and plan how you'll get back after the party.",
 "s.city.where": "Where to look",
 "s.city.where.b": "The area around the Rynek (main square) is the most central.",
 "s.city.late": "Getting back late",
@@ -689,35 +692,33 @@ const S = {
 "s.city.july.b": "July is busy in Wrocław and the good places go first.",
 "s.city.tell": "Tell us either way",
 "s.city.tell.b": "Just answer the question on the RSVP.",
-"s.cta.note": "Ready? Tell us whether you'd like a room and we'll confirm by email whether we've managed to book it.",
+"s.cta.note": "Ready? Tell us by 21 March 2027 whether you'd like a room and we'll confirm by email whether we've managed to book it.",
 "s.breakfast": "Breakfast",
 "s.breakfast.note": "Breakfast isn't included in the room price. We're checking with the palace how much it will cost to add it.",
 "f.party.hint": "Adults only, please — see the wedding page for why.",
 "w.title": "The wedding",
 "w.lede": "Saturday 10 July 2027 at Pałac Pawłowice, Pawłowicka 87/89, Wrocław. Everything you need to know for the day.",
 "venue.title": "The venue",
-"venue.body": "Pałac Pawłowice, where the ceremony, dinner and party will all take place.",
+"venue.body": "Pałac Pawłowice, where the ceremony and the party will both take place.",
 "w.sched.h": "The timings",
 "w.sched.lede": "We're still working out the timings with the palace. We'll post the full schedule here well before the day and email everyone who has RSVP'd.",
 "w.sched.soon": "Coming soon",
 "w.sched.soon.unit": "watch this page",
-"w.sched.soon.note": "The ceremony will be in the afternoon, followed by dinner and dancing into the night. Plan to be at the palace for the whole day and evening.",
+"w.sched.soon.note": "The ceremony will be in the afternoon, followed by lots of food and dancing into the night. Plan to be at the palace for the whole day and evening.",
 "w.know.h": "Good to know",
 "w.lang": "Languages",
 "w.lang.note": "The ceremony will be in English, Polish and Spanish, so everyone in the room can follow it. You don't need to speak Polish to enjoy the day.",
 "w.kids": "Children",
 "w.kids.note": "We've decided to keep the day adults-only. We know that makes things harder for some of you. We're sorry about that, and we really hope you can still come.",
-"w.dress": "What to wear",
-"w.dress.todo": "Dress code still to decide — one line here, plus a note that July in Wrocław is hot.",
+"w.dress": "Dress code",
+"w.dress.note": "A standard wedding outfit is fine, but you're free to come however you like.",
 "w.gifts": "Gifts",
-"w.gifts.todo": "Decide what to say about gifts — nothing needed, a contribution, or a list.",
+"w.gifts.note": "There won't be a gift list, but if you'd like to contribute to one of our future projects, more details on how to do that soon.",
 "w.where": "Where to go",
 "w.where.note": "Pałac Pawłowice, Pawłowicka 87/89, 51-250 Wrocław. It's in the north-east of the city. The Travel page explains how to get there.",
 "w.help": "If something goes wrong",
-"w.help.note": "Write to us at zuandluis@gmail.com. We'll add a phone number for the day itself closer to the date.",
-"w.cta.note": "Coming? Let us know which days, and whether you'd like a room at the palace.",
-"home.soon": "More details to come soon",
-"soon.short": "More details soon"
+"w.help.note": "If you need any help, you can reach us on WhatsApp. You can also write to us at zuandluis@gmail.com.",
+"w.cta.note": "Coming? Let us know which days, and whether you'd like a room at the palace, by 21 March 2027.",
 },
 "es": {
 "nav.home": "Inicio",
@@ -730,7 +731,7 @@ const S = {
 "cta.rsvp": "Confirma tu asistencia",
 "cta.details": "Ver el fin de semana",
 "video.home.title": "Un saludo de los dos",
-"video.home.body": "En enero llegará un vídeo como es debido; de momento, un pequeño saludo desde Brighton :)",
+"video.home.body": "En enero subiremos un video resumen de la página. De momento, un pequeño saludo desde Brighton :)",
 "weekend.title": "El fin de semana de la boda",
 "weekend.lede": "Ven el fin de semana entero si puedes. Si solo puedes un día, que sea el sábado.",
 "day.fri.date": "Vie 9 de julio",
@@ -741,17 +742,18 @@ const S = {
 "day.fri.note": "Visita guiada especial por Wrocław, con salida aproximadamente a mediodía (pronto más detalles).",
 "day.sat.label": "El día de la boda",
 "day.sat.what": "Ceremonia y fiesta",
-"day.sat.note": "Ceremonia por la tarde en el Pałac Pawłowice, cena y baile hasta tarde.",
+"day.sat.note": "Ceremonia por la tarde en el Pałac Pawłowice, mucha comida y baile hasta tarde.",
 "day.flag": "Este no te lo pierdas",
 "day.sun.label": "Opcional",
 "day.sun.what": "Paseo en barco",
-"day.sun.note": "Un paseo en barco por el Oder, pronto más detalles.",
-"link.wedding": "El día de la boda y el lugar.",
-"link.travel": "Vuelos a Wrocław y el traslado al palacio.",
-"link.stay": "Habitaciones en el palacio.",
-"link.rsvp": "Dinos qué días vienes.",
+"day.sun.note": "Un paseo en barco por el Oder (pronto más detalles).",
 "count.label": "días para la boda",
-"count.deadline": "Todavía no hay fecha límite. Responde cuando lo sepas y te avisaremos si eso cambia.",
+"count.deadline": "Fecha límite para responder es el 21 de marzo de 2027.",
+"pop.title": "Galleta de la fortuna",
+"pop.body": "Zu y Luis te quieren, has sido elegid@ para venir a su boda!",
+"pop.body2": "¡Bienvenido@ a la boda de Zu y Luis! ¡Enhorabuena!",
+"pop.body3": "Hi friend! Can you smile for us? :)",
+"pop.btn": "¡Qué ilusión, gracias!",
 "foot.contact": "¿Dudas? Escríbenos a zuandluis@gmail.com.",
 "rsvp.title": "Confirmación",
 "rsvp.lede": "Envía un solo formulario por hogar, incluyendo a todos los que vengáis.",
@@ -769,9 +771,9 @@ const S = {
 "f.day.fri": "Viernes 9 de julio — tour por Wrocław",
 "f.day.fri.note": "Visita guiada por Wrocław hacia el mediodía. Calzado cómodo.",
 "f.day.sat": "Sábado 10 de julio — la boda",
-"f.day.sat.note": "Ceremonia, cena y baile en el Pałac Pawłowice.",
+"f.day.sat.note": "Ceremonia, mucha comida y baile en el Pałac Pawłowice.",
 "f.day.sun": "Domingo 11 de julio — paseo en barco",
-"f.day.sun.note": "Paseo en barco por el Oder, pronto más detalles. Reserva el vuelo de vuelta para la tarde-noche.",
+"f.day.sun.note": "Paseo en barco por el Oder (pronto más detalles). Reserva el vuelo de vuelta para la tarde-noche.",
 "f.err.days": "Marca al menos un día.",
 "f.party": "¿Cuántos venís?",
 "f.adults": "Número de personas, contigo incluido",
@@ -850,7 +852,7 @@ const S = {
 "s.hold": "Reservar habitación",
 "s.hold.note": "Marca «Me interesa una habitación en el lugar de la boda» en el RSVP e intentaremos reservarte una. Hay pocas habitaciones, así que nos ayuda que nos lo digas pronto. Te lo confirmaremos por correo.",
 "s.city.h": "¿Prefieres alojarte en la ciudad?",
-"s.city.lede": "Ningún problema. En el casco antiguo de Wrocław hay hoteles de todos los precios y está a unos 25 minutos del palacio en taxi. Marca «Buscaré alojamiento por mi cuenta» en el RSVP para que no te guardemos habitación, y piensa cómo volverás después de la fiesta.",
+"s.city.lede": "En el casco antiguo de Wrocław hay hoteles de todos los precios y está a unos 25 minutos del palacio en taxi. Marca «Buscaré alojamiento por mi cuenta» en el RSVP para que no te guardemos habitación, y piensa cómo volverás después de la fiesta.",
 "s.city.where": "Dónde buscar",
 "s.city.where.b": "La zona del Rynek (la plaza mayor) es la más céntrica.",
 "s.city.late": "Volver de madrugada",
@@ -859,35 +861,33 @@ const S = {
 "s.city.july.b": "Julio es temporada alta en Wrocław y lo bueno vuela.",
 "s.city.tell": "Dínoslo igualmente",
 "s.city.tell.b": "Solo responde a la pregunta del RSVP.",
-"s.cta.note": "¿Listo? Dinos si quieres habitación y te confirmaremos por correo si hemos podido reservarla.",
+"s.cta.note": "¿Listo? Dinos antes del 21 de marzo de 2027 si quieres habitación y te confirmaremos por correo si hemos podido reservarla.",
 "s.breakfast": "Desayuno",
 "s.breakfast.note": "El desayuno no está incluido en el precio de la habitación. Estamos consultando con el palacio cuánto costaría añadirlo.",
 "f.party.hint": "Solo adultos, por favor: en la página de la boda explicamos por qué.",
 "w.title": "La boda",
 "w.lede": "Sábado 10 de julio de 2027 en el Pałac Pawłowice, Pawłowicka 87/89, Wrocław. Todo lo que necesitas saber para ese día.",
 "venue.title": "El lugar",
-"venue.body": "El Pałac Pawłowice, donde serán la ceremonia, la cena y la fiesta.",
+"venue.body": "El Pałac Pawłowice, donde serán la ceremonia y la fiesta.",
 "w.sched.h": "Los horarios",
 "w.sched.lede": "Todavía estamos cerrando los horarios con el palacio. Publicaremos el programa completo aquí con tiempo y avisaremos por correo a todos los que hayan respondido.",
 "w.sched.soon": "Próximamente",
 "w.sched.soon.unit": "atento a esta página",
-"w.sched.soon.note": "La ceremonia será por la tarde y después habrá cena y baile hasta bien entrada la noche. Cuenta con estar en el palacio todo el día y la noche.",
+"w.sched.soon.note": "La ceremonia será por la tarde y después habrá mucha comida y baile hasta bien entrada la noche. Cuenta con estar en el palacio todo el día y la noche.",
 "w.know.h": "Conviene saber",
 "w.lang": "Idiomas",
 "w.lang.note": "La ceremonia será en inglés, polaco y español, para que todo el mundo pueda seguirla. No hace falta saber polaco para disfrutar del día.",
 "w.kids": "Niños",
 "w.kids.note": "Hemos decidido que la boda sea solo para adultos. Sabemos que a algunos os lo pone más difícil. Lo sentimos mucho y esperamos de verdad que podáis venir.",
-"w.dress": "Cómo vestir",
-"w.dress.todo": "Falta decidir el código de vestimenta: una línea aquí y un aviso de que en julio hace calor en Wrocław.",
+"w.dress": "Etiqueta",
+"w.dress.note": "Con atuendo de boda normal es suficiente, pero puedes venir como quieras!",
 "w.gifts": "Regalos",
-"w.gifts.todo": "Decidir qué decir sobre los regalos: que no hace falta nada, una aportación o una lista.",
+"w.gifts.note": "No habrá lista de regalos, pero si te gustaría contribuir a uno de nuestros futuros proyectos, pronto daremos más detalles sobre cómo hacerlo.",
 "w.where": "Dónde es",
 "w.where.note": "Pałac Pawłowice, Pawłowicka 87/89, 51-250 Wrocław. Está en el noreste de la ciudad. En la página «Cómo llegar» te explicamos cómo ir.",
 "w.help": "Si surge algún problema",
-"w.help.note": "Escríbenos a zuandluis@gmail.com. Más cerca de la fecha añadiremos un número de teléfono para el mismo día.",
-"w.cta.note": "¿Vienes? Dinos qué días y si quieres habitación en el palacio.",
-"home.soon": "Pronto más detalles",
-"soon.short": "Más detalles pronto"
+"w.help.note": "Si necesitas ayuda, puedes escribirnos por WhatsApp. También puedes escribirnos a zuandluis@gmail.com.",
+"w.cta.note": "¿Vienes? Dinos qué días y si quieres habitación en el palacio antes del 21 de marzo de 2027.",
 },
 "pl": {
 "nav.home": "Start",
@@ -900,7 +900,7 @@ const S = {
 "cta.rsvp": "Potwierdź obecność",
 "cta.details": "Zobacz plan weekendu",
 "video.home.title": "Kilka słów od nas",
-"video.home.body": "Prawdziwy film pojawi się w styczniu; na razie małe pozdrowienia z Brighton :)",
+"video.home.body": "W styczniu dodamy film z podsumowaniem strony. Na razie małe pozdrowienia z Brighton :)",
 "weekend.title": "Weselny weekend",
 "weekend.lede": "Przyjedź na cały weekend, jeśli możesz. Jeśli tylko na jeden dzień — niech to będzie sobota.",
 "day.fri.date": "Pt 9 lipca",
@@ -911,20 +911,21 @@ const S = {
 "day.fri.note": "Specjalne zwiedzanie Wrocławia z przewodnikiem, start mniej więcej w południe (szczegóły wkrótce).",
 "day.sat.label": "Dzień ślubu",
 "day.sat.what": "Ceremonia i przyjęcie",
-"day.sat.note": "Ceremonia po południu w Pałacu Pawłowice, kolacja i zabawa do późna.",
+"day.sat.note": "Ceremonia po południu w Pałacu Pawłowice, dużo jedzenia i zabawa do późna.",
 "day.flag": "Tego dnia nie przegap",
 "day.sun.label": "Nieobowiązkowo",
 "day.sun.what": "Rejs",
-"day.sun.note": "Rejs po Odrze, szczegóły wkrótce.",
-"link.wedding": "Sam dzień ślubu i miejsce.",
-"link.travel": "Loty do Wrocławia i dojazd do pałacu.",
-"link.stay": "Pokoje w pałacu.",
-"link.rsvp": "Napisz, w które dni będziesz.",
+"day.sun.note": "Rejs po Odrze (szczegóły wkrótce).",
 "count.label": "dni do ślubu",
-"count.deadline": "Na razie nie ma terminu. Odpowiedz, kiedy będziesz wiedzieć, a damy znać, jeśli to się zmieni.",
+"count.deadline": "Prosimy o odpowiedź do 21 marca 2027.",
+"pop.title": "Ciasteczko z wróżbą",
+"pop.body": "Zu and Luis love you, you have been chosen to join their wedding!",
+"pop.body2": "Welcome to Zu & Luis' wedding! Congratulations!",
+"pop.body3": "Hi friend! Can you smile for us? :)",
+"pop.btn": "Hurra, dziękuję!",
 "foot.contact": "Pytania? Napisz do nas: zuandluis@gmail.com.",
-"rsvp.title": "Potwierdzenie obecności",
-"rsvp.lede": "Prosimy o jeden formularz na gospodarstwo domowe, z uwzględnieniem wszystkich, którzy przyjadą.",
+"rsvp.title": "RSVP",
+"rsvp.lede": "Prosimy o jeden formularz na rodzinę, z uwzględnieniem wszystkich, którzy przyjadą.",
 "f.who": "Kto wypełnia formularz?",
 "f.name": "Twoje imię i nazwisko *",
 "f.email": "E-mail *",
@@ -939,9 +940,9 @@ const S = {
 "f.day.fri": "Piątek 9 lipca — zwiedzanie Wrocławia",
 "f.day.fri.note": "Zwiedzanie Wrocławia z przewodnikiem od około południa. Wygodne buty.",
 "f.day.sat": "Sobota 10 lipca — ślub",
-"f.day.sat.note": "Ceremonia, kolacja i zabawa w Pałacu Pawłowice.",
+"f.day.sat.note": "Ceremonia, dużo jedzenia i zabawa w Pałacu Pawłowice.",
 "f.day.sun": "Niedziela 11 lipca — rejs",
-"f.day.sun.note": "Rejs po Odrze, szczegóły wkrótce. Lot powrotny zaplanuj na wieczór.",
+"f.day.sun.note": "Rejs po Odrze (szczegóły wkrótce). Lot powrotny zaplanuj na wieczór.",
 "f.err.days": "Zaznacz przynajmniej jeden dzień.",
 "f.party": "Ile osób przyjeżdża?",
 "f.adults": "Liczba osób, razem z Tobą",
@@ -1020,7 +1021,7 @@ const S = {
 "s.hold": "Rezerwacja pokoju",
 "s.hold.note": "Zaznacz w formularzu RSVP „Jestem zainteresowany/a pokojem na miejscu wesela”, a spróbujemy zarezerwować dla Ciebie pokój. Pokoi jest niewiele, więc dobrze, jeśli dasz znać wcześnie. Potwierdzimy mailem.",
 "s.city.h": "Wolisz nocleg w mieście?",
-"s.city.lede": "Nie ma problemu. Na wrocławskiej starówce są hotele w każdej cenie, a do pałacu jest stamtąd około 25 minut taksówką. Zaznacz w formularzu RSVP „Sam(a) znajdę nocleg”, żebyśmy nie trzymali dla Ciebie pokoju, i zaplanuj powrót po zabawie.",
+"s.city.lede": "Na wrocławskiej starówce są hotele w każdej cenie, a do pałacu jest stamtąd około 25 minut taksówką. Zaznacz w formularzu RSVP „Sam(a) znajdę nocleg”, żebyśmy nie trzymali dla Ciebie pokoju, i zaplanuj powrót po zabawie.",
 "s.city.where": "Gdzie szukać",
 "s.city.where.b": "Okolice Rynku to najbardziej centralna część miasta.",
 "s.city.late": "Powrót nad ranem",
@@ -1029,39 +1030,37 @@ const S = {
 "s.city.july.b": "Lipiec to we Wrocławiu gorący okres, a dobre miejsca znikają pierwsze.",
 "s.city.tell": "Tak czy inaczej — daj znać",
 "s.city.tell.b": "Wystarczy odpowiedzieć na pytanie w formularzu RSVP.",
-"s.cta.note": "Gotowe? Napisz, czy chcesz pokój, a potwierdzimy mailem, czy udało się go zarezerwować.",
+"s.cta.note": "Gotowe? Napisz do 21 marca 2027, czy chcesz pokój, a potwierdzimy mailem, czy udało się go zarezerwować.",
 "s.breakfast": "Śniadanie",
 "s.breakfast.note": "Śniadanie nie jest wliczone w cenę pokoju. Sprawdzamy w pałacu, ile będzie kosztować jego dodanie.",
 "f.party.hint": "Prosimy tylko o osoby dorosłe — wyjaśniamy to na stronie o ślubie.",
 "w.title": "Ślub",
 "w.lede": "Sobota, 10 lipca 2027, Pałac Pawłowice, Pawłowicka 87/89, Wrocław. Wszystko, co trzeba wiedzieć na ten dzień.",
-"venue.title": "Miejsce",
-"venue.body": "Pałac Pawłowice, gdzie odbędą się ceremonia, kolacja i przyjęcie.",
+"venue.title": "Miejsce przyjęcia",
+"venue.body": "Pałac Pawłowice, gdzie odbędą się ceremonia i przyjęcie.",
 "w.sched.h": "Godziny",
 "w.sched.lede": "Wciąż ustalamy z pałacem szczegóły harmonogramu. Pełny plan opublikujemy tutaj z dużym wyprzedzeniem i napiszemy do wszystkich, którzy odpowiedzieli na zaproszenie.",
 "w.sched.soon": "Wkrótce",
 "w.sched.soon.unit": "zaglądaj na tę stronę",
-"w.sched.soon.note": "Ceremonia odbędzie się po południu, potem kolacja i tańce do późnej nocy. Zaplanuj, że spędzisz w pałacu cały dzień i wieczór.",
+"w.sched.soon.note": "Ceremonia odbędzie się po południu, potem dużo jedzenia i tańce do późnej nocy. Zaplanuj, że spędzisz w pałacu cały dzień i wieczór.",
 "w.know.h": "Warto wiedzieć",
 "w.lang": "Języki",
 "w.lang.note": "Ceremonia będzie po angielsku, polsku i hiszpańsku, żeby wszyscy mogli ją zrozumieć. Nie trzeba znać polskiego, żeby dobrze się bawić.",
 "w.kids": "Dzieci",
 "w.kids.note": "Zdecydowaliśmy, że wesele będzie tylko dla dorosłych. Wiemy, że dla części z Was to utrudnienie. Bardzo nam przykro i naprawdę mamy nadzieję, że mimo to przyjedziecie.",
 "w.dress": "Dress code",
-"w.dress.todo": "Do ustalenia: jedno zdanie o dress code'zie plus uwaga, że w lipcu we Wrocławiu bywa upalnie.",
+"w.dress.note": "Zwykły strój weselny w zupełności wystarczy, ale możesz przyjść w czym tylko chcesz.",
 "w.gifts": "Prezenty",
-"w.gifts.todo": "Zdecydować, co napisać o prezentach — że nic nie trzeba, wsparcie finansowe albo lista.",
+"w.gifts.note": "Nie będzie listy prezentów, ale jeśli chcesz wesprzeć jeden z naszych przyszłych projektów, wkrótce podamy więcej szczegółów, jak to zrobić.",
 "w.where": "Gdzie",
 "w.where.note": "Pałac Pawłowice, Pawłowicka 87/89, 51-250 Wrocław. Znajduje się w północno-wschodniej części miasta. Jak dojechać, wyjaśniamy na stronie „Dojazd”.",
 "w.help": "Gdyby coś poszło nie tak",
-"w.help.note": "Napisz do nas na zuandluis@gmail.com. Bliżej terminu dodamy numer telefonu na dzień ślubu.",
-"w.cta.note": "Będziesz? Daj znać, w które dni i czy chcesz pokój w pałacu.",
-"home.soon": "Więcej szczegółów wkrótce",
-"soon.short": "Więcej szczegółów wkrótce"
+"w.help.note": "Jeśli potrzebujesz pomocy, napisz do nas na WhatsAppie. Możesz też napisać na zuandluis@gmail.com.",
+"w.cta.note": "Będziesz? Daj znać do 21 marca 2027, w które dni i czy chcesz pokój w pałacu.",
 }
 };
 
-function setLang(code){
+function setLang(code, remember = true){
   const dict = S[code]; if(!dict) return;
   document.documentElement.lang = code;
   document.querySelectorAll("[data-i18n]").forEach(el=>{
@@ -1071,11 +1070,17 @@ function setLang(code){
     else el.textContent = v;
   });
   document.querySelectorAll(".lang").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.lang===code)));
-  try{ localStorage.setItem("lang", code); }catch(e){}
+  if(remember){ try{ localStorage.setItem("lang", code); }catch(e){} }
 }
 document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
 let savedLang = null; try{ savedLang = localStorage.getItem("lang"); }catch(e){}
-setLang(S[savedLang] ? savedLang : "en");
+/* a saved choice wins; otherwise follow the browser's language (es / pl / en) */
+function browserLang(){
+  const list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+  for(const l of list){ const c = String(l).slice(0,2).toLowerCase(); if(S[c]) return c; }
+  return "en";
+}
+if(S[savedLang]) setLang(savedLang); else setLang(browserLang(), false);
 
 /* routing */
 function route(){
@@ -1160,6 +1165,39 @@ form.addEventListener("submit", async e=>{
   document.getElementById("done").classList.remove("hidden");
   window.scrollTo(0,0);
 });
+
+/* first-visit welcome pop-up */
+(function(){
+  const pop = document.getElementById("pop"), ok = document.getElementById("popOk"), x = document.getElementById("popX");
+  const KEY = "welcomeSeen";
+  let seen = false;
+  try{ seen = !!localStorage.getItem(KEY); }catch(e){}
+  if(seen) return;
+  function close(){
+    pop.classList.remove("on");
+    setTimeout(()=>{ pop.hidden = true; document.body.style.overflow = ""; }, 350);
+    try{ localStorage.setItem(KEY, "1"); }catch(e){}
+  }
+  /* each guest gets one of the fortune cookies at random, and keeps it if they reload before closing */
+  const VARIANTS = ["pop.body", "pop.body2", "pop.body3"];
+  let variant = null;
+  try{ variant = parseInt(sessionStorage.getItem("popVariant"), 10); }catch(e){}
+  if(!(variant >= 0 && variant < VARIANTS.length)){
+    variant = Math.floor(Math.random() * VARIANTS.length);
+    try{ sessionStorage.setItem("popVariant", String(variant)); }catch(e){}
+  }
+  if(variant > 0){
+    const body = document.getElementById("popBody");
+    body.dataset.i18n = VARIANTS[variant];
+    body.textContent = (S[document.documentElement.lang] || S.en)[VARIANTS[variant]];
+  }
+  pop.hidden = false;
+  document.body.style.overflow = "hidden";
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ pop.classList.add("on"); ok.focus(); }));
+  ok.addEventListener("click", close);
+  x.addEventListener("click", close);
+  document.addEventListener("keydown", e=>{ if(e.key === "Escape" && !pop.hidden) close(); });
+})();
 </script>
 </body>
 </html>
